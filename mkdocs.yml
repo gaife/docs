@@ -2,11 +2,11 @@ site_name: GAIFE API Documentation
 
 site_description: Comprehensive API documentation for GAIFE platform
 site_author: GAIFE Team
-site_url: https://docs.gaife.com  # Replace with your actual documentation URL
+site_url: https://docs.gaife.com
 
 # Repository
-repo_name: GAIFE  # Replace with your actual repo name
-repo_url: https://github.com/gaife  # Replace with your actual repo URL
+repo_name: docs
+repo_url: https://github.com/gaife/docs
 
 theme:
   name: material
