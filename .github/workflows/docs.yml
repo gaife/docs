@@ -40,10 +40,10 @@ jobs:
 
      # Build documentation in strict mode to catch all warnings as errors
      - name: Build documentation
-       run: mkdocs build --strict
+       run: uv run mkdocs build --strict
 
      # Deploy documentation to GitHub Pages
      # Only runs on push to main branch, not on PRs
      - name: Deploy documentation
-       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-       run: mkdocs gh-deploy --force
+       if: github.event_name == "push" && github.ref == "refs/heads/main"
+       run: uv run mkdocs gh-deploy --force
