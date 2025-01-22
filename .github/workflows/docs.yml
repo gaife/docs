@@ -1,0 +1,49 @@
+# Workflow name that appears in GitHub Actions UI
+name: Deploy Documentation
+
+# Defines when this workflow will run
+on:
+ push:
+   branches:
+     - main  # Run on pushes to main branch
+ pull_request:
+   branches:
+     - main  # Run on PRs targeting main branch
+
+# Grant write permissions to repository contents
+permissions:
+ contents: write
+
+jobs:
+ deploy:
+   runs-on: ubuntu-latest  # Use latest Ubuntu runner
+
+   steps:
+     # Checkout the repository code
+     - uses: actions/checkout@v4
+
+     # Install uv package manager
+     - name: Install uv
+       uses: astral-sh/setup-uv@v5
+       with:
+         enable-cache: true  # Enable caching for faster installations
+
+     # Set up Python using version specified in pyproject.toml
+     - name: Set up Python
+       uses: actions/setup-python@v5
+       with:
+         python-version-file: "pyproject.toml"
+
+     # Install project dependencies including dev dependencies
+     - name: Install dependencies
+       run: uv sync --all-extras --dev
+
+     # Build documentation in strict mode to catch all warnings as errors
+     - name: Build documentation
+       run: mkdocs build --strict
+
+     # Deploy documentation to GitHub Pages
+     # Only runs on push to main branch, not on PRs
+     - name: Deploy documentation
+       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+       run: mkdocs gh-deploy --force
