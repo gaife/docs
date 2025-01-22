@@ -1,0 +1,9 @@
+[project]
+name = "docs"
+version = "0.1.0"
+description = "Official documentation for GAIFE. Includes guides, API references, examples, and best practices."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pre-commit>=4.1.0",
+]

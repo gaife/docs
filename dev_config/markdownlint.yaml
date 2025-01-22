@@ -1,0 +1,4 @@
+default: true
+MD013: false  # Line length
+MD022: false  # Headings should be surrounded by blank lines
+MD031: false  # Fenced code blocks should be surrounded by blank lines
