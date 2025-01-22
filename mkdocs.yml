@@ -1,0 +1,107 @@
+site_name: GAIFE API Documentation
+
+site_description: Comprehensive API documentation for GAIFE platform
+site_author: GAIFE Team
+site_url: https://docs.gaife.com  # Replace with your actual documentation URL
+
+# Repository
+repo_name: GAIFE  # Replace with your actual repo name
+repo_url: https://github.com/gaife  # Replace with your actual repo URL
+
+theme:
+  name: material
+  logo: public/logo.svg
+  favicon: public/logo.svg
+  icon:
+    repo: fontawesome/brands/github  # GitHub repository icon
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top        # Back to top button
+    - navigation.tracking   # URL tracking
+    - navigation.indexes    # Section index pages
+    - search.highlight     # Search result highlighting
+    - search.share         # Search sharing
+    - search.suggest      # Search suggestions
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link    # Link content tabs
+    - toc.follow          # Follow TOC while scrolling
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: indigo
+      accent: blue
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: indigo
+      accent: light blue
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.keys
+  - def_list
+  - footnotes
+
+nav:
+  - Overview: index.md
+  - Chat:
+    - chat/index.md
+    - Conversations: chat/conversations.md
+    - Messages: chat/message.md
+    - Webhooks Integration: chat/webhooks.md
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+# Development server configuration
+dev_addr: 127.0.0.1:8008
+
+# Copyright
+copyright: >
+  Copyright © 2025 GAIFE. All rights reserved.

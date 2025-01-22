@@ -1,4 +1,6 @@
 default: true
+MD007: false  # Unordered list indentation
 MD013: false  # Line length
 MD022: false  # Headings should be surrounded by blank lines
+MD024: false  # Multiple headings with the same content
 MD031: false  # Fenced code blocks should be surrounded by blank lines

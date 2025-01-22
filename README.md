@@ -32,3 +32,9 @@ uv run pre-commit install
 ```bash
 uv run pre-commit run --all-files
 ```
+
+- Start the development server:
+
+```bash
+uv run mkdocs serve
+```
