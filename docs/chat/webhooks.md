@@ -22,143 +22,143 @@ Add a webhook URL to your conversation configuration:
 
 === "Django"
 
-```python
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-import json
+    ```python
+    from django.http import HttpResponse
+    from django.views.decorators.csrf import csrf_exempt
+    import json
 
-@csrf_exempt
-def webhook_handler(request):
-    try:
-        payload = json.loads(request.body)
-        # Process payload asynchronously
-        process_webhook.delay(payload)
-        return HttpResponse(status=200)
-    except Exception as e:
-        logger.error(f"Webhook processing error: {str(e)}")
-        return HttpResponse(status=200)  # Always acknowledge receipt
-```
+    @csrf_exempt
+    def webhook_handler(request):
+        try:
+            payload = json.loads(request.body)
+            # Process payload asynchronously
+            process_webhook.delay(payload)
+            return HttpResponse(status=200)
+        except Exception as e:
+            logger.error(f"Webhook processing error: {str(e)}")
+            return HttpResponse(status=200)  # Always acknowledge receipt
+    ```
 
 === "FastAPI"
 
-```python
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+    ```python
+    from fastapi import FastAPI, Request
+    from fastapi.responses import JSONResponse
 
-app = FastAPI()
+    app = FastAPI()
 
-@app.post("/webhook")
-async def webhook_handler(request: Request):
-    try:
-        payload = await request.json()
-        # Process payload asynchronously
-        process_webhook.delay(payload)
-        return JSONResponse(status_code=200)
-    except Exception as e:
-        logger.error(f"Webhook processing error: {str(e)}")
-        return JSONResponse(status_code=200)
-```
+    @app.post("/webhook")
+    async def webhook_handler(request: Request):
+        try:
+            payload = await request.json()
+            # Process payload asynchronously
+            process_webhook.delay(payload)
+            return JSONResponse(status_code=200)
+        except Exception as e:
+            logger.error(f"Webhook processing error: {str(e)}")
+            return JSONResponse(status_code=200)
+    ```
 
 === "Flask"
 
-```python
-from flask import Flask, request
+    ```python
+    from flask import Flask, request
 
-app = Flask(__name__)
+    app = Flask(__name__)
 
-@app.route('/webhook', methods=['POST'])
-def webhook_handler():
-    try:
-        payload = request.get_json()
-        # Process payload asynchronously
-        process_webhook.delay(payload)
-        return '', 200
-    except Exception as e:
-        logger.error(f"Webhook processing error: {str(e)}")
-        return '', 200
-```
+    @app.route('/webhook', methods=['POST'])
+    def webhook_handler():
+        try:
+            payload = request.get_json()
+            # Process payload asynchronously
+            process_webhook.delay(payload)
+            return '', 200
+        except Exception as e:
+            logger.error(f"Webhook processing error: {str(e)}")
+            return '', 200
+    ```
 
 === "Express.js"
 
-```javascript
-const express = require('express');
-const app = express();
+    ```javascript
+    const express = require('express');
+    const app = express();
 
-app.post('/webhook', express.json(), async (req, res) => {
-    try {
-        const payload = req.body;
-        // Process payload asynchronously
-        await processWebhook(payload);
-        res.sendStatus(200);
-    } catch (err) {
-        console.error(`Webhook processing error: ${err.message}`);
-        res.sendStatus(200); // Always acknowledge receipt
-    }
-});
-```
+    app.post('/webhook', express.json(), async (req, res) => {
+        try {
+            const payload = req.body;
+            // Process payload asynchronously
+            await processWebhook(payload);
+            res.sendStatus(200);
+        } catch (err) {
+            console.error(`Webhook processing error: ${err.message}`);
+            res.sendStatus(200); // Always acknowledge receipt
+        }
+    });
+    ```
 
 === "Spring Boot"
 
-```java
-@RestController
-public class WebhookController {
-    @PostMapping("/webhook")
-    public ResponseEntity<Void> handleWebhook(@RequestBody String payload) {
-        try {
-            // Process payload asynchronously
-            webhookService.processWebhook(payload);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            logger.error("Webhook processing error: " + e.getMessage());
-            return ResponseEntity.ok().build(); // Always acknowledge receipt
+    ```java
+    @RestController
+    public class WebhookController {
+        @PostMapping("/webhook")
+        public ResponseEntity<Void> handleWebhook(@RequestBody String payload) {
+            try {
+                // Process payload asynchronously
+                webhookService.processWebhook(payload);
+                return ResponseEntity.ok().build();
+            } catch (Exception e) {
+                logger.error("Webhook processing error: " + e.getMessage());
+                return ResponseEntity.ok().build(); // Always acknowledge receipt
+            }
         }
     }
-}
-```
+    ```
 
 === "PHP"
 
-```php
-<?php
+    ```php
+    <?php
 
-// Receive POST data
-$rawPayload = file_get_contents('php://input');
+    // Receive POST data
+    $rawPayload = file_get_contents('php://input');
 
-try {
-    // Parse JSON payload
-    $payload = json_decode($rawPayload, true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        throw new Exception('Invalid JSON payload');
+    try {
+        // Parse JSON payload
+        $payload = json_decode($rawPayload, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new Exception('Invalid JSON payload');
+        }
+
+        // Log webhook receipt
+        error_log('Webhook received: ' . $rawPayload);
+
+        // Process payload asynchronously (using a job queue system like Laravel Queue or Gearman)
+        processWebhookAsync($payload);
+
+        // Always return 200 response
+        http_response_code(200);
+        echo json_encode(['status' => 'success']);
+
+    } catch (Exception $e) {
+        error_log('Webhook processing error: ' . $e->getMessage());
+
+        // Still return 200 to acknowledge receipt
+        http_response_code(200);
+        echo json_encode(['status' => 'received']);
     }
 
-    // Log webhook receipt
-    error_log('Webhook received: ' . $rawPayload);
-
-    // Process payload asynchronously (using a job queue system like Laravel Queue or Gearman)
-    processWebhookAsync($payload);
-
-    // Always return 200 response
-    http_response_code(200);
-    echo json_encode(['status' => 'success']);
-
-} catch (Exception $e) {
-    error_log('Webhook processing error: ' . $e->getMessage());
-
-    // Still return 200 to acknowledge receipt
-    http_response_code(200);
-    echo json_encode(['status' => 'received']);
-}
-
-/**
-    * Example async processing function
-    * In practice, this should use a proper job queue
-    */
-function processWebhookAsync($payload) {
-    // Add to job queue or process directly
-    // Example using Laravel Queue:
-    // ProcessWebhook::dispatch($payload);
-}
-```
+    /**
+        * Example async processing function
+        * In practice, this should use a proper job queue
+        */
+    function processWebhookAsync($payload) {
+        // Add to job queue or process directly
+        // Example using Laravel Queue:
+        // ProcessWebhook::dispatch($payload);
+    }
+    ```
 
 ## Technical Specifications
 
