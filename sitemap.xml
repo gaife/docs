@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://docs.gaife.com/</loc>
+         <lastmod>2025-01-23</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.gaife.com/chat/</loc>
+         <lastmod>2025-01-23</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.gaife.com/chat/conversations/</loc>
+         <lastmod>2025-01-23</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.gaife.com/chat/message/</loc>
+         <lastmod>2025-01-23</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.gaife.com/chat/webhooks/</loc>
+         <lastmod>2025-01-23</lastmod>
+    </url>
+</urlset>
