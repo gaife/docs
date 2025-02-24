@@ -308,9 +308,3 @@ graph TD
 1. Learn about [Coder Tasks](coder-task.md)
 2. Review [Validation Rules](../guides/validation-rules.md)
 3. Check [Best Practices](../guides/best-practices.md)
-
-## Related Documentation
-
-- [Tool Integration](../guides/tool-integration.md)
-- [Authentication](../guides/authentication.md)
-- [Error Handling](../guides/error-handling.md)

@@ -53,8 +53,6 @@ Learn best practices and validation rules:
 Get hands-on experience:
 
 - **[Task Examples](examples/task-examples.md)** - Real-world task configurations
-- **[Common Patterns](examples/common-patterns.md)** - Frequently used workflows
-- **[Use Cases](examples/use-cases.md)** - Industry-specific examples
 
 ## Quick References 📋
 

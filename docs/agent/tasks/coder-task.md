@@ -289,9 +289,3 @@ graph TD
 1. Learn about [App Tasks](app-task.md)
 2. Review [Validation Rules](../guides/validation-rules.md)
 3. Check [Best Practices](../guides/best-practices.md)
-
-## Related Documentation
-
-- [Code Artifacts](../guides/code-artifacts.md)
-- [Error Handling](../guides/error-handling.md)
-- [Performance Optimization](../guides/performance.md)

@@ -239,5 +239,3 @@ Human tasks can have three possible responses:
 ## Related Documentation
 
 - [Assignment Rules](../guides/assignment-rules.md)
-- [Notification System](../guides/notifications.md)
-- [Task Dependencies](../guides/dependencies.md)

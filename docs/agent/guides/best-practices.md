@@ -261,4 +261,3 @@ This guide outlines recommended practices for creating effective and maintainabl
 
 1. Review [Validation Rules](validation-rules.md)
 2. Check [Task Examples](../examples/task-examples.md)
-3. Explore [Advanced Configurations](../examples/advanced-config.md)

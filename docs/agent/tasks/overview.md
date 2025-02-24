@@ -7,7 +7,7 @@ Tasks are the building blocks of your workflow agent. Each task type serves a sp
 ## Available Task Types
 
 ### AI Task
-![AI Task](../assets/ai-task-icon.svg)
+![AI Task]()
 
 **Purpose**: Execute AI-driven operations for intelligent processing.
 
@@ -20,7 +20,7 @@ Tasks are the building blocks of your workflow agent. Each task type serves a sp
 [Learn more about AI Tasks →](ai-task.md)
 
 ### Human Task
-![Human Task](../assets/human-task-icon.svg)
+![Human Task]()
 
 **Purpose**: Enable human intervention in workflows.
 
@@ -33,7 +33,7 @@ Tasks are the building blocks of your workflow agent. Each task type serves a sp
 [Learn more about Human Tasks →](human-task.md)
 
 ### App Task
-![App Task](../assets/app-task-icon.svg)
+![App Task]()
 
 **Purpose**: Integrate with external tools and applications.
 
@@ -46,7 +46,7 @@ Tasks are the building blocks of your workflow agent. Each task type serves a sp
 [Learn more about App Tasks →](app-task.md)
 
 ### Coder Task
-![Coder Task](../assets/coder-task-icon.svg)
+![Coder Task]()
 
 **Purpose**: Execute custom code artifacts.
 
