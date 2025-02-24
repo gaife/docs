@@ -232,12 +232,12 @@ Assignment rules determine:
 === "User Guide"
     ### Exception Rules
     Exception rules are used when you need someone to handle error cases or special situations in your workflow.
-    
+
     **How to Configure:**
     1. Select "Exception" as the rule type
     2. Choose either a specific user or team
     3. For teams, select "Round Robin" distribution method
-    
+
     **When to Use:**
     - Error handling
     - Special case processing
@@ -245,12 +245,12 @@ Assignment rules determine:
 
     ### Human Feedback Rules
     These rules are for tasks that need human review or approval.
-    
+
     **How to Configure:**
     1. Select "Human Feedback" as the rule type
     2. Choose assignee (user or team)
     3. Set distribution method for teams
-    
+
     **When to Use:**
     - Document approvals
     - Content review
@@ -281,11 +281,11 @@ Assignment rules determine:
 === "User Guide"
     ### Assigning to a User
     When you need a specific person to handle the task:
-    
+
     1. Select "User" assignment
     2. Choose the user from the dropdown
     3. Save the assignment
-    
+
     **Best for:**
     - Tasks needing specific expertise
     - Individual responsibility
@@ -293,12 +293,12 @@ Assignment rules determine:
 
     ### Assigning to a Team
     When you want a group to handle tasks:
-    
+
     1. Select "Team" assignment
     2. Choose the team
     3. Select "Round Robin" for fair distribution
     4. Save the assignment
-    
+
     **Best for:**
     - Shared workload
     - Backup coverage
@@ -329,12 +329,12 @@ Assignment rules determine:
     1. At least one assignment rule is needed
     2. Select a valid user or team
     3. Choose appropriate rule type
-    
+
     ### For Team Assignments
     - Select distribution method
     - Ensure team has active members
     - Set backup assignments if needed
-    
+
     ### For User Assignments
     - Verify user has correct permissions
     - Consider setting backup assignees
@@ -366,7 +366,7 @@ Assignment rules determine:
     1. Create Human Feedback rule
     2. Assign to review team
     3. Enable Round Robin distribution
-    
+
     ### Error Handling
     1. Create Exception rule
     2. Assign to support team or expert
@@ -399,7 +399,7 @@ Assignment rules determine:
        - Use clear assignments
        - Set logical rules
        - Document special cases
-    
+
     2. **Plan for Backup**
        - Set alternate assignees
        - Consider team availability
@@ -417,7 +417,7 @@ Assignment rules determine:
          ]
        }
        ```
-    
+
     2. **Validation**
        - Verify IDs before saving
        - Check permissions
