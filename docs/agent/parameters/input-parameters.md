@@ -4,8 +4,7 @@ Input parameters define the data that your tasks will process. Understanding how
 
 ## Parameter Types
 
-=== "User Guide"
-    ### Basic Types
+=== "Basic Types"
     | Type | Description | Example |
     |------|-------------|---------|
     | STRING | Text data | "Hello World" |
@@ -13,53 +12,18 @@ Input parameters define the data that your tasks will process. Understanding how
     | FLOAT | Decimal numbers | 3.14 |
     | BOOLEAN | True/false values | true |
 
-    ### Complex Types
-    | Type | Description | Use Case |
-    |------|-------------|----------|
-    | ARRAY | List of items (max 2D) | Lists, collections |
-    | OBJECT | Structured data | Complex data structures |
-    | ENUM | Limited choices | Predefined options |
+=== "Complex Types"
+    | Type | Description | Example | Restrictions |
+    |------|-------------|---------|--------------|
+    | ARRAY | List of items | `["item1", "item2"]` | Maximum 2D arrays allowed |
+    | OBJECT | Structured data | `{"name": "John"}` | Properties must be basic types |
+    | ENUM | Limited choices | `"APPROVED"` | Fixed set of values |
 
-    ### Special Types
+=== "Special Types"
     | Type | Description | Use Case |
     |------|-------------|----------|
     | OUTPUT_ARTIFACT | Reference to task output | Inter-task data flow |
     | KNOWLEDGE_ARTIFACT | Knowledge base reference | Accessing stored knowledge |
-
-=== "Developer Reference"
-    ### Type Definitions
-    ```python
-    # Basic Types
-    STRING = "string"
-    INTEGER = "integer"
-    FLOAT = "float"
-    BOOLEAN = "boolean"
-    
-    # Complex Types
-    ARRAY = "array"
-    OBJECT = "object"
-    ENUM = "enum"
-    
-    # Special Types
-    OUTPUT_ARTIFACT = "output_artifact"
-    KNOWLEDGE_ARTIFACT = "knowledge_artifact"
-
-    # Object Property Types (Strict)
-    class ObjectPropertyType(str, Enum):
-        STRING = "string"
-        INTEGER = "integer"
-        FLOAT = "float"
-        BOOLEAN = "boolean"
-
-    # Array Item Types (Strict)
-    class ArrayItemType(str, Enum):
-        STRING = "string"
-        INTEGER = "integer"
-        FLOAT = "float"
-        BOOLEAN = "boolean"
-        ARRAY = "array"      # Only for 2D arrays
-        OBJECT = "object"
-    ```
 
 ## Complex Type Configuration
 
