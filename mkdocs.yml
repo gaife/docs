@@ -1,5 +1,4 @@
 site_name: GAIFE API Documentation
-
 site_description: Comprehensive API documentation for GAIFE platform
 site_author: GAIFE Team
 site_url: https://docs.gaife.com
@@ -13,48 +12,78 @@ theme:
   logo: public/logo.svg
   favicon: public/logo.svg
   icon:
-    repo: fontawesome/brands/github  # GitHub repository icon
+    repo: fontawesome/brands/github # GitHub repository icon
   features:
+    # Navigation
     - navigation.tabs
     - navigation.sections
     - navigation.expand
-    - navigation.top        # Back to top button
-    - navigation.tracking   # URL tracking
-    - navigation.indexes    # Section index pages
-    - search.highlight     # Search result highlighting
-    - search.share         # Search sharing
-    - search.suggest      # Search suggestions
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.instant
+
+    # Search
+    - search.highlight
+    - search.share
+    - search.suggest
+
+    # Content
     - content.code.copy
     - content.code.annotate
-    - content.tabs.link    # Link content tabs
-    - toc.follow          # Follow TOC while scrolling
+    - content.tabs.link
+    - toc.follow
+
+  # Color schemes
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
       primary: indigo
       accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
       primary: indigo
       accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  # palette:
+  #   # Light mode
+  #   - media: "(prefers-color-scheme: light)"
+  #     scheme: default
+  #     toggle:
+  #       icon: material/toggle-switch-off-outline
+  #       name: Switch to dark mode
+  #     primary: indigo
+  #     accent: blue
+
+  #   # Dark mode
+  #   - media: "(prefers-color-scheme: dark)"
+  #     scheme: slate
+  #     toggle:
+  #       icon: material/toggle-switch
+  #       name: Switch to light mode
+  #     primary: indigo
+  #     accent: light blue
 
 # Extensions
 markdown_extensions:
+  # Code highlighting
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  
   - pymdownx.snippets
+  
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -89,10 +118,31 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - Chat:
-    - chat/index.md
-    - Conversations: chat/conversations.md
-    - Messages: chat/message.md
-    - Webhooks Integration: chat/webhooks.md
+      - chat/index.md
+      - Conversations: chat/conversations.md
+      - Messages: chat/message.md
+      - Webhooks Integration: chat/webhooks.md
+  - Agent:
+      - agent/index.md
+      - Getting Started:
+        - Introduction: agent/getting-started/introduction.md
+        - Core Concepts: agent/getting-started/concepts.md
+        - Quick Start: agent/getting-started/quickstart.md
+      - Tasks:
+        - Overview: agent/tasks/overview.md
+        - AI Task: agent/tasks/ai-task.md
+        - Human Task: agent/tasks/human-task.md
+        - App Task: agent/tasks/app-task.md
+        - Coder Task: agent/tasks/coder-task.md
+      - Parameters:
+        - Input Parameters: agent/parameters/input-parameters.md
+        - Output Parameters: agent/parameters/output-parameters.md
+      - Guides:
+        - Assignment Rules: agent/guides/assignment-rules.md
+        - Validation Rules: agent/guides/validation-rules.md
+        - Best Practices: agent/guides/best-practices.md
+      - Examples:
+          - Task Examples: agent/examples/task-examples.md
 
 plugins:
   - search
