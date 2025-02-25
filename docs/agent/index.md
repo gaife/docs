@@ -91,7 +91,3 @@ Get hands-on experience:
 2. Learn the [Core Concepts](getting-started/concepts.md)
 3. Follow the [Quick Start Guide](getting-started/quickstart.md)
 4. Explore [Task Types](tasks/overview.md)
-
----
-
-*Need help? Contact our [support team](mailto:support@example.com) or visit our [community forum](#).*

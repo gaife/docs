@@ -153,5 +153,3 @@ After completing this guide, you can:
 ## Need Help?
 
 - Check our [Documentation](../index.md)
-- Visit the [Community Forum](#)
-- Contact [Support](#)
