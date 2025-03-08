@@ -8,28 +8,29 @@ This guide covers all validation rules that must be satisfied when creating or u
 
 ### Assignment Rules
 1. **Minimum Requirement**
-   - At least one assignment rule must exist
-   - ```json
-     {
-       "rule_type": "Human Feedback|Exception",
-       "assignment_type": "User|Team",
-       "assignee_id": "valid_id"
-     }
-     ```
+    - At least one assignment rule must exist
+    ```json
+    {
+        "rule_type": "Human Feedback|Exception",
+        "assignment_type": "User|Team",
+        "assignee_id": "valid_id"
+    }
+    ```
 
 ### Task Dependencies
+
 1. **Cyclic Dependencies**
-   - No circular dependencies allowed between tasks
-   ```mermaid
-   graph TD
-      A[Task A] --> B[Task B]
-      B --> C[Task C]
-      C -.- x[❌] --> A
-   ```
+    - No circular dependencies allowed between tasks
+    ```mermaid
+    graph TD
+        A[Task A] --> B[Task B]
+        B --> C[Task C]
+        C -.- x[❌] --> A
+    ```
 
 2. **Valid Connections**
-   - Tasks must be properly connected
-   - Output parameters must match input requirements
+    - Tasks must be properly connected
+    - Output parameters must match input requirements
 
 ## Task-Specific Validation
 
@@ -225,19 +226,19 @@ Common validation errors and their meanings:
 ## Best Practices
 
 1. **Pre-validation**
-   - Validate input data before submission
-   - Check type compatibility
-   - Verify required fields
+    - Validate input data before submission
+    - Check type compatibility
+    - Verify required fields
 
 2. **Error Handling**
-   - Handle validation errors gracefully
-   - Provide clear error messages
-   - Log validation failures
+    - Handle validation errors gracefully
+    - Provide clear error messages
+    - Log validation failures
 
 3. **Testing**
-   - Test edge cases
-   - Verify all required fields
-   - Check type conversions
+    - Test edge cases
+    - Verify all required fields
+    - Check type conversions
 
 ## Next Steps
 

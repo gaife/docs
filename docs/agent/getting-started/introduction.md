@@ -8,6 +8,7 @@ An agent is a configurable workflow that can execute various types of tasks auto
 
 ### 1. Tasks
 The building blocks of your agent:
+
 - **AI Tasks**: For intelligent processing
 - **Human Tasks**: For manual approvals and interventions
 - **App Tasks**: For tool and application integrations
@@ -15,11 +16,13 @@ The building blocks of your agent:
 
 ### 2. Parameters
 Define how data flows through your agent:
+
 - **Input Parameters**: Data your tasks will process
 - **Output Parameters**: Results from your tasks
 
 ### 3. Assignment Rules
 Control who can interact with tasks:
+
 - User assignments
 - Team assignments
 - Routing rules
@@ -27,36 +30,36 @@ Control who can interact with tasks:
 ## Why Use Agent Builder?
 
 1. **Automation**
-   - Streamline workflows
-   - Reduce manual effort
-   - Ensure consistency
+    - Streamline workflows
+    - Reduce manual effort
+    - Ensure consistency
 
 2. **Flexibility**
-   - Mix different task types
-   - Configure complex flows
-   - Adapt to changing needs
+    - Mix different task types
+    - Configure complex flows
+    - Adapt to changing needs
 
 3. **Control**
-   - Monitor execution
-   - Handle errors
-   - Track performance
+    - Monitor execution
+    - Handle errors
+    - Track performance
 
 ## Key Features
 
 1. **Visual Builder**
-   - Drag-and-drop interface
-   - Visual flow representation
-   - Easy configuration
+    - Drag-and-drop interface
+    - Visual flow representation
+    - Easy configuration
 
 2. **Task Library**
-   - Pre-built task types
-   - Custom configurations
-   - Reusable components
+    - Pre-built task types
+    - Custom configurations
+    - Reusable components
 
 3. **Error Handling**
-   - Configurable policies
-   - Recovery options
-   - Clear error reporting
+    - Configurable policies
+    - Recovery options
+    - Clear error reporting
 
 ## Next Steps
 

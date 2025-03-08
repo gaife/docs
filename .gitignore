@@ -3,7 +3,6 @@ site/
 
 # IDE
 .idea/
-.vscode/
 *.swp
 *.swo
 

@@ -23,164 +23,164 @@ This guide outlines recommended practices for creating effective and maintainabl
 
 ### Task Organization
 1. **Logical Grouping**
-   ```mermaid
-   graph TD
-      A[Data Input] --> B[Data Validation]
-      B --> C[Data Processing]
-      C --> D[Result Output]
-   ```
+    ```mermaid
+    graph TD
+        A[Data Input] --> B[Data Validation]
+        B --> C[Data Processing]
+        C --> D[Result Output]
+    ```
 
 2. **Clear Dependencies**
-   - Keep dependencies minimal
-   - Avoid complex chains
-   - Document connection purposes
+    - Keep dependencies minimal
+    - Avoid complex chains
+    - Document connection purposes
 
 ## Input/Output Configuration
 
 ### Input Parameters
 1. **Clear Naming**
-   ```json
-   {
-     "name": "customerEmail",
-     "type": "STRING",
-     "description": "Customer's primary email address"
-   }
-   ```
+    ```json
+    {
+        "name": "customerEmail",
+        "type": "STRING",
+        "description": "Customer's primary email address"
+    }
+    ```
 
 2. **Type Selection**
-   - Use simplest type possible
-   - Consider data flow requirements
-   - Document format requirements
+    - Use simplest type possible
+    - Consider data flow requirements
+    - Document format requirements
 
 3. **Validation Rules**
-   ```json
-   {
-     "name": "age",
-     "type": "INTEGER",
-     "description": "Customer age in years",
-     "required": true,
-     "source": "task_config"
-   }
-   ```
+    ```json
+    {
+        "name": "age",
+        "type": "INTEGER",
+        "description": "Customer age in years",
+        "required": true,
+        "source": "task_config"
+    }
+    ```
 
 ### Output Parameters
 1. **Structured Output**
-   ```json
-   {
-     "name": "validationResult",
-     "type": "OBJECT",
-     "properties": {
-       "isValid": "BOOLEAN",
-       "errors": "ARRAY"
-     }
-   }
-   ```
+    ```json
+    {
+        "name": "validationResult",
+        "type": "OBJECT",
+        "properties": {
+            "isValid": "BOOLEAN",
+            "errors": "ARRAY"
+        }
+    }
+    ```
 
 2. **Error Handling**
-   - Include error information
-   - Provide status indicators
-   - Add validation messages
+    - Include error information
+    - Provide status indicators
+    - Add validation messages
 
 ## Task-Specific Best Practices
 
 ### AI Tasks
 1. **Clear Instructions**
-   ```json
-   {
-     "instructions": "Analyze the customer feedback and categorize the sentiment as POSITIVE, NEGATIVE, or NEUTRAL. Extract key points and improvement suggestions.",
-     "expected_output": {
-       "sentiment": "STRING",
-       "keyPoints": "ARRAY",
-       "suggestions": "ARRAY"
-     }
-   }
-   ```
+    ```json
+    {
+        "instructions": "Analyze the customer feedback and categorize the sentiment as POSITIVE, NEGATIVE, or NEUTRAL. Extract key points and improvement suggestions.",
+        "expected_output": {
+            "sentiment": "STRING",
+            "keyPoints": "ARRAY",
+            "suggestions": "ARRAY"
+        }
+    }
+    ```
 
 2. **Output Structure**
-   - Define clear categories
-   - Include confidence scores
-   - Structure for easy processing
+    - Define clear categories
+    - Include confidence scores
+    - Structure for easy processing
 
 ### Human Tasks
 1. **Clear Decision Points**
-   ```json
-   {
-     "instructions": "Review the generated content for accuracy and brand alignment. Choose APPROVE or REJECT and provide feedback.",
-     "expected_output": {
-       "decision": "STRING",
-       "feedback": "STRING"
-     }
-   }
-   ```
+    ```json
+    {
+        "instructions": "Review the generated content for accuracy and brand alignment. Choose APPROVE or REJECT and provide feedback.",
+        "expected_output": {
+            "decision": "STRING",
+            "feedback": "STRING"
+        }
+    }
+    ```
 
 2. **Assignment Rules**
-   ```json
-   {
-     "rule_type": "Human Feedback",
-     "assignment_type": "Team",
-     "assignment_logic": "Round Robin"
-   }
-   ```
+    ```json
+    {
+        "rule_type": "Human Feedback",
+        "assignment_type": "Team",
+        "assignment_logic": "Round Robin"
+    }
+    ```
 
 ### App Tasks
 1. **Tool Configuration**
-   ```json
-   {
-     "tool_name": "EmailService",
-     "provider": "SendGrid",
-     "input_parameters": [
-       {
-         "name": "template_id",
-         "type": "STRING",
-         "required": true
-       }
-     ]
-   }
-   ```
+    ```json
+    {
+        "tool_name": "EmailService",
+        "provider": "SendGrid",
+        "input_parameters": [
+            {
+                "name": "template_id",
+                "type": "STRING",
+                "required": true
+            }
+        ]
+    }
+    ```
 
 2. **Error Handling**
-   ```json
-   {
-     "error_policy": "RETRY",
-     "max_retries": 3,
-     "retry_delay": 60
-   }
-   ```
+    ```json
+    {
+        "error_policy": "RETRY",
+        "max_retries": 3,
+        "retry_delay": 60
+    }
+    ```
 
 ### Coder Tasks
 1. **Code Artifact Management**
-   ```json
-   {
-     "code_artifact_id": "12345",
-     "input_parameters": [
-       {
-         "name": "data",
-         "type": "OBJECT",
-         "description": "Data structure following schema XYZ"
-       }
-     ]
-   }
-   ```
+    ```json
+    {
+        "code_artifact_id": "12345",
+        "input_parameters": [
+            {
+                "name": "data",
+                "type": "OBJECT",
+                "description": "Data structure following schema XYZ"
+            }
+        ]
+    }
+    ```
 
 ## Error Handling
 
 ### Global Error Policies
 ```json
 {
-  "error_policy": "RAISE",
-  "notification_channels": ["email", "slack"],
-  "error_details": "DETAILED"
+    "error_policy": "RAISE",
+    "notification_channels": ["email", "slack"],
+    "error_details": "DETAILED"
 }
 ```
 
 ### Task-Level Error Handling
 ```json
 {
-  "on_error": {
-    "action": "RETRY",
-    "max_attempts": 3,
-    "fallback_task": "ErrorHandler"
-  }
+    "on_error": {
+        "action": "RETRY",
+        "max_attempts": 3,
+        "fallback_task": "ErrorHandler"
+    }
 }
 ```
 
@@ -213,12 +213,12 @@ This guide outlines recommended practices for creating effective and maintainabl
 ### 1. Task Testing
 ```json
 {
-  "test_cases": [
-    {
-      "input": "sample_input",
-      "expected_output": "expected_result"
-    }
-  ]
+    "test_cases": [
+        {
+            "input": "sample_input",
+            "expected_output": "expected_result"
+        }
+    ]
 }
 ```
 
@@ -243,19 +243,19 @@ This guide outlines recommended practices for creating effective and maintainabl
 ## Common Pitfalls to Avoid
 
 1. **Over-complexity**
-   - Too many dependencies
-   - Unnecessary tasks
-   - Complex logic
+    - Too many dependencies
+    - Unnecessary tasks
+    - Complex logic
 
 2. **Poor Error Handling**
-   - Missing error cases
-   - Unclear error messages
-   - No recovery path
+    - Missing error cases
+    - Unclear error messages
+    - No recovery path
 
 3. **Insufficient Validation**
-   - Missing input validation
-   - Weak type checking
-   - Incomplete error checks
+    - Missing input validation
+    - Weak type checking
+    - Incomplete error checks
 
 ## Next Steps
 

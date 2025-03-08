@@ -1,14 +1,20 @@
-# [GAIFE](https://www.gaife.com) API Documentation
+# [GAIFE](https://www.gaife.com) Documentation
 
-This is the documentation for the GAIFE developer APIs.
+Welcome to the official GAIFE documentation for both our products and APIs.
 
-## Base URL
+## Product Documentation
 
-- The base URL for all API requests is:
+- [Agent](./agent/index.md) - Guides for the GAIFE Agent product
+    - [Getting Started](./agent/getting-started/introduction.md)
+    - [Tasks Overview](./agent/tasks/overview.md)
+    - [Knowledge Base](./agent/knowledge/base.md)
 
-```bash
-https://developer.gaife.com/api
-```
+## API Documentation
+
+- [Chat API](./chat/index.md) - Developer integration with GAIFE Chat
+    - [Conversations](./chat/conversations.md)
+    - [Messages](./chat/message.md)
+    - [Webhooks](./chat/webhooks.md)
 
 ## API Access & Authentication
 
@@ -18,10 +24,10 @@ To manage your API keys:
    `https://beta.gaife.com/organizations/{your_org}/api-access`
 
 2. Here you can:
-   - Create new API keys
-   - View existing keys
-   - Revoke or rotate keys as needed
-   - Set key permissions and expiration dates
+    - Create new API keys
+    - View existing keys
+    - Revoke or rotate keys as needed
+    - Set key permissions and expiration dates
 
 !!! warning "Important"
     Keep your API keys secure and never share them in public repositories or client-side code.

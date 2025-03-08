@@ -29,13 +29,17 @@ Input parameters define the data that your tasks will process. Understanding how
 
 === "User Guide"
     ### Array Parameters
+
     ⚠️ **Important Rules**:
+
     - Maximum 2D arrays allowed
     - Inner array elements can be basic types or objects
     - No 3D or deeper arrays
 
     ### Object Parameters
+
     ⚠️ **Important Rules**:
+
     - Properties must use only:
       - STRING
       - INTEGER
@@ -113,19 +117,19 @@ Input parameters define the data that your tasks will process. Understanding how
 === "User Guide"
     ### Available Sources
     1. **Task Config**
-       - Set during task setup
-       - Fixed values
-       - Template values
+        - Set during task setup
+        - Fixed values
+        - Template values
 
     2. **System Generated**
-       - Created during execution
-       - Dynamic values
-       - No manual input needed
+        - Created during execution
+        - Dynamic values
+        - No manual input needed
 
     3. **Human Input**
-       - Provided during workflow
-       - User interaction required
-       - Interactive forms
+        - Provided during workflow
+        - User interaction required
+        - Interactive forms
 
 === "Developer Reference"
     ```json
@@ -248,19 +252,19 @@ Input parameters define the data that your tasks will process. Understanding how
 
 === "Type Rules"
     1. **Object Properties**
-       - Only basic types allowed (string, integer, float, boolean)
-       - All fields required (name, description, type, required)
-       - No nested objects
+        - Only basic types allowed (string, integer, float, boolean)
+        - All fields required (name, description, type, required)
+        - No nested objects
 
     2. **Array Items**
-       - Maximum 2D arrays
-       - Basic types or objects for elements
-       - Proper null values for unused fields
+        - Maximum 2D arrays
+        - Basic types or objects for elements
+        - Proper null values for unused fields
 
     3. **Type Consistency**
-       - Must follow exact schema
-       - No additional fields
-       - Proper null handling
+        - Must follow exact schema
+        - No additional fields
+        - Proper null handling
 
 === "Invalid Examples"
     ```json
@@ -294,24 +298,24 @@ Input parameters define the data that your tasks will process. Understanding how
 ## Best Practices
 
 1. **Naming Conventions**
-   - Use clear, descriptive names
-   - Follow consistent conventions
-   - Indicate purpose in name
+    - Use clear, descriptive names
+    - Follow consistent conventions
+    - Indicate purpose in name
 
 2. **Documentation**
-   - Be specific and clear
-   - Include format requirements
-   - Note any dependencies
+    - Be specific and clear
+    - Include format requirements
+    - Note any dependencies
 
 3. **Type Selection**
-   - Use simplest type possible
-   - Consider data flow requirements
-   - Plan for scale
+    - Use simplest type possible
+    - Consider data flow requirements
+    - Plan for scale
 
 4. **Validation**
-   - Set appropriate required flags
-   - Include format constraints
-   - Consider edge cases
+    - Set appropriate required flags
+    - Include format constraints
+    - Consider edge cases
 
 ## Common Issues and Solutions
 
