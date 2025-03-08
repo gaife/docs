@@ -1,8 +1,12 @@
-# Coder Task
+# 💻 Coder Task
 
 ## Overview
 
-Coder Tasks allow you to execute pre-defined code artifacts within your workflow. These tasks are ideal for custom calculations, data transformations, and complex business logic implementation.
+Coder Tasks allow you to execute pre-defined code artifacts within your workflow. These tasks integrate the computational power of [Coder Artifacts](../knowledge/coder-artifact.md) into your workflow processes. Coder Tasks are ideal for custom calculations, data transformations, and complex business logic implementation.
+
+## Visual Example
+
+![Coder Task Example](./images/coder-task.png)
 
 ## Configuration Structure
 
@@ -25,16 +29,18 @@ Coder Tasks allow you to execute pre-defined code artifacts within your workflow
 ## Required Fields
 
 | Field | Type | Description | Required |
-|-------|------|-------------|----------|
-| name | string | Task identifier | Yes |
-| instructions | string | Task instructions | Yes |
-| code_artifact_id | integer | Reference to code artifact | Yes |
-| input_parameters | array | Input configuration | Yes |
-| expected_output | array | Output configuration | Yes |
-| dependencies | array | Task dependencies | No |
-| error_policy | string | Error handling strategy | No |
+|:------|:-----|:------------|:--------:|
+| name | string | Task identifier | ✅ |
+| instructions | string | Task instructions | ✅ |
+| code_artifact_id | integer | Reference to code artifact | ✅ |
+| input_parameters | array | Input configuration | ✅ |
+| expected_output | array | Output configuration | ✅ |
+| dependencies | array | Task dependencies | ❌ |
+| error_policy | string | Error handling strategy | ❌ |
 
 ## Input Parameters
+
+The input parameters define what data your Coder Task will receive. These parameters will be passed to the `arguments` dictionary in your [Coder Artifact](../knowledge/coder-artifact.md) function.
 
 ### Basic Input
 ```json
@@ -79,6 +85,8 @@ Coder Tasks allow you to execute pre-defined code artifacts within your workflow
 
 ## Output Parameters
 
+Output parameters define the structure of data that your Coder Task will return. These should match the structure returned by your [Coder Artifact](../knowledge/coder-artifact.md) function.
+
 ### Simple Output
 ```json
 {
@@ -112,6 +120,10 @@ Coder Tasks allow you to execute pre-defined code artifacts within your workflow
   }
 }
 ```
+
+## Workflow Integration
+
+Coder Tasks act as computational nodes in your workflow, taking input from previous tasks, processing it using the referenced Coder Artifact, and outputting results for subsequent tasks.
 
 ## Common Use Cases
 
@@ -173,46 +185,85 @@ Coder Tasks allow you to execute pre-defined code artifacts within your workflow
 }
 ```
 
+### 3. Invoice Processing
+```json
+{
+  "name": "Calculate Invoice Information",
+  "code_artifact_id": 789,
+  "instructions": "Compute the total invoice amount based on the collected item details",
+  "input_parameters": [
+    {
+      "name": "items_to_be_billed",
+      "type": "ARRAY",
+      "items": {
+        "type": "OBJECT",
+        "properties": {
+          "item_price": {"type": "STRING"},
+          "item_quantity": {"type": "STRING"}
+        }
+      },
+      "description": "List of items with price and quantity",
+      "required": true
+    }
+  ],
+  "expected_output": [
+    {
+      "name": "calculation_amount",
+      "type": "OBJECT",
+      "properties": {
+        "total_tax": {"type": "STRING"},
+        "current_date": {"type": "STRING"},
+        "total_amount": {"type": "STRING"},
+        "total_state_tax": {"type": "STRING"},
+        "total_central_tax": {"type": "STRING"},
+        "total_amount_with_gst": {"type": "STRING"}
+      },
+      "description": "Calculated invoice amounts"
+    }
+  ]
+}
+```
+
 ## Best Practices
 
 ### 1. Code Artifact Management
 ✅ **Do**:
-- Use version control
-- Document dependencies
-- Include test cases
-- Handle errors gracefully
+- Use version control for your Coder Artifacts
+- Document dependencies clearly
+- Include test cases with your Coder Artifacts
+- Handle errors gracefully in your Python code (as shown in the [Coder Artifact documentation](../knowledge/coder-artifact.md))
 
 ❌ **Don't**:
-- Hard-code configurations
-- Ignore error cases
-- Skip input validation
-- Mix business logic
+- Hard-code configurations that might change
+- Ignore error cases in your Coder Artifact code
+- Skip input validation in your Python function
+- Mix business logic between Coder Tasks and Coder Artifacts
 
 ### 2. Input Parameters
 ✅ **Do**:
-- Validate all inputs
-- Document requirements
-- Use appropriate types
-- Include examples
+- Validate all inputs in your Coder Artifact code
+- Document input requirements thoroughly
+- Use appropriate types that match your Coder Artifact expectations
+- Include examples in your documentation
 
 ❌ **Don't**:
-- Skip validation
-- Use ambiguous names
-- Ignore data types
+- Skip validation in your Coder Artifact code
+- Use ambiguous parameter names
+- Ignore data types that will cause conversion issues
 
 ### 3. Output Handling
 ✅ **Do**:
-- Define clear structure
-- Include error info
-- Add processing metadata
-- Validate outputs
+- Define clear output structure that matches your Coder Artifact return values
+- Include error information in your response
+- Add processing metadata when useful
+- Validate outputs in your Coder Artifact code
 
 ❌ **Don't**:
-- Return raw errors
-- Skip validation
-- Use inconsistent formats
+- Return raw errors without context
+- Skip validation of output data
+- Use inconsistent formats between Coder Artifact and Coder Task configurations
 
-## Error Handling
+## ⚠️ Error Handling
 
 ### Configuration
 ```json
@@ -224,11 +275,11 @@ Coder Tasks allow you to execute pre-defined code artifacts within your workflow
 ```
 
 ### Error Types
-1. Input Validation Errors
-2. Processing Errors
-3. System Errors
+1. **Input Validation Errors**: Occurs when input doesn't match expected format
+2. **Processing Errors**: Occurs during execution of the Coder Artifact
+3. **System Errors**: Occurs due to system limitations or failures
 
-## Integration Examples
+## 🔗 Integration Examples
 
 ### With AI Task
 ```mermaid
@@ -245,16 +296,16 @@ graph TD
     C --> D[Result Output]
 ```
 
-## Common Issues and Solutions
+## ❓ Common Issues and Solutions
 
 | Issue | Solution |
-|-------|----------|
-| Code Artifact Not Found | Verify artifact ID and access |
-| Input Validation Failed | Check input types and format |
-| Processing Error | Review error logs and retry |
-| Memory Issues | Optimize data handling |
+|:------|:---------|
+| Code Artifact Not Found | Verify artifact ID and ensure it's published |
+| Input Validation Failed | Check input types and format against Coder Artifact requirements |
+| Processing Error | Review error logs in your Coder Artifact and retry |
+| Memory Issues | Optimize data handling in your Python code |
 
-## Examples by Industry
+## 🏢 Examples by Industry
 
 ### Finance
 ```json
@@ -284,8 +335,20 @@ graph TD
 }
 ```
 
-## Next Steps
+## 🔄 Connection with Coder Artifacts
+
+Coder Tasks rely on well-designed Coder Artifacts to function properly. When creating a Coder Task:
+
+1. **Select an existing Coder Artifact** from your knowledge base
+2. **Configure input parameters** that match the expectations of your Coder Artifact's function
+3. **Define expected output** that aligns with what your Coder Artifact function returns
+4. **Provide clear instructions** for maintainers to understand the task's purpose
+
+For detailed information on creating effective Coder Artifacts, refer to the [Coder Artifact documentation](../knowledge/coder-artifact.md).
+
+## 📚 Next Steps
 
 1. Learn about [App Tasks](app-task.md)
 2. Review [Validation Rules](../guides/validation-rules.md)
 3. Check [Best Practices](../guides/best-practices.md)
+4. Learn more about [Creating Coder Artifacts](../knowledge/coder-artifact.md)

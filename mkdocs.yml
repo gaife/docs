@@ -137,6 +137,9 @@ nav:
       - Parameters:
         - Input Parameters: agent/parameters/input-parameters.md
         - Output Parameters: agent/parameters/output-parameters.md
+      - Knowledge:
+        - Base: agent/knowledge/base.md
+        - Coder Artifact: agent/knowledge/coder-artifact.md
       - Guides:
         - Assignment Rules: agent/guides/assignment-rules.md
         - Validation Rules: agent/guides/validation-rules.md
