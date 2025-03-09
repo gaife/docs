@@ -3,6 +3,7 @@
 This guide will help you create your first workflow agent using Agent Builder. We'll create a simple document review workflow that includes AI analysis and human approval.
 
 ## Prerequisites
+
 - Access to Agent Builder platform
 - Necessary permissions to create and edit workflows
 - Basic understanding of workflow concepts
@@ -94,17 +95,17 @@ Add a human approval task:
 ## Step 5: Test Your Agent
 
 1. **Save Your Agent**
-   - Click "Save" to store your configuration
+    - Click "Save" to store your configuration
 
 2. **Run a Test**
-   - Click "Test Agent"
-   - Input test document content
-   - Monitor the execution
+    - Click "Test Agent"
+    - Input test document content
+    - Monitor the execution
 
 3. **Review Results**
-   - Check AI analysis output
-   - Complete human review task
-   - Verify workflow completion
+    - Check AI analysis output
+    - Complete human review task
+    - Verify workflow completion
 
 ## Common Issues and Solutions
 
@@ -125,31 +126,33 @@ Add a human approval task:
 After completing this guide, you can:
 
 1. **Explore More Task Types**
-   - Learn about [App Tasks](../tasks/app-task.md)
-   - Try [Coder Tasks](../tasks/coder-task.md)
+    - Learn about [App Tasks](../tasks/app-task.md)
+    - Try [Coder Tasks](../tasks/coder-task.md)
 
 2. **Advanced Configuration**
-   - Configure [Input Parameters](../parameters/input-parameters.md)
-   - Set up [Output Parameters](../parameters/output-parameters.md)
+    - Configure [Input Parameters](../parameters/input-parameters.md)
+    - Set up [Output Parameters](../parameters/output-parameters.md)
 
 3. **Best Practices**
-   - Review [Validation Rules](../guides/validation-rules.md)
-   - Learn [Best Practices](../guides/best-practices.md)
+    - Review [Validation Rules](../guides/validation-rules.md)
+    - Learn [Best Practices](../guides/best-practices.md)
 
 ## Tips for Success
 
 1. **Start Simple**
-   - Begin with basic tasks
-   - Add complexity gradually
+    - Begin with basic tasks
+    - Add complexity gradually
 
 2. **Test Thoroughly**
-   - Test each task individually
-   - Verify full workflow execution
+    - Test each task individually
+    - Verify full workflow execution
 
 3. **Document Your Work**
-   - Add clear descriptions
-   - Document any special requirements
+    - Add clear descriptions
+    - Document any special requirements
 
-## Need Help?
+## Next Steps
 
-- Check our [Documentation](../index.md)
+1. Read [Tasks](../tasks/overview.md)
+2. Follow the [Task Parmeters](../parameters/input-parameters.md)
+3. Explore [Knowledge Base](../knowledge/base.md)

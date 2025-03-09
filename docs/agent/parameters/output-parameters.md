@@ -196,21 +196,21 @@ Control output parameter visibility and editability:
 
 ### Type-Specific Validation
 1. **Basic Types**
-   - BOOLEAN: true/false
-   - INTEGER: whole numbers
-   - FLOAT: decimal numbers
-   - STRING: text values
-   - DATETIME: valid date/time format
+    - BOOLEAN: true/false
+    - INTEGER: whole numbers
+    - FLOAT: decimal numbers
+    - STRING: text values
+    - DATETIME: valid date/time format
 
 2. **Array Validation**
-   - Must have defined item type
-   - Items must match specified type
-   - Valid for nested arrays
+    - Must have defined item type
+    - Items must match specified type
+    - Valid for nested arrays
 
 3. **Object Validation**
-   - Properties must be defined
-   - Property types must be valid
-   - Required properties present
+    - Properties must be defined
+    - Property types must be valid
+    - Required properties present
 
 ## Best Practices
 
@@ -244,16 +244,19 @@ Control output parameter visibility and editability:
 ## Common Issues and Solutions
 
 ### Issue 1: Type Mismatch
-**Problem**: Output type doesn't match connected input
-**Solution**: Verify type compatibility between connected tasks
+
+- **Problem**: Output type doesn't match connected input
+- **Solution**: Verify type compatibility between connected tasks
 
 ### Issue 2: Missing Properties
-**Problem**: Required object properties not defined
-**Solution**: Define all required properties in object type
+
+- **Problem**: Required object properties not defined
+- **Solution**: Define all required properties in object type
 
 ### Issue 3: Visibility Issues
-**Problem**: Data not visible in UI
-**Solution**: Check gaife_internal_is_data_visible setting
+
+- **Problem**: Data not visible in UI
+- **Solution**: Check gaife_internal_is_data_visible setting
 
 ## Examples by Use Case
 

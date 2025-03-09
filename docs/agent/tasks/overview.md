@@ -11,48 +11,56 @@ Tasks are the building blocks of your workflow agent. Each task type serves a sp
 **Purpose**: Execute AI-driven operations for intelligent processing.
 
 **Use Cases**:
+
 - Text analysis
 - Content generation
 - Data classification
 - Pattern recognition
 
-[Learn more about AI Tasks →](ai-task.md)
+!!! Learn
+    [More about AI Tasks →](ai-task.md)
 
 ### Human Task
 
 **Purpose**: Enable human intervention in workflows.
 
 **Use Cases**:
+
 - Document approval
 - Content review
 - Decision making
 - Quality validation
 
-[Learn more about Human Tasks →](human-task.md)
+!!! Learn
+    [More about Human Tasks →](human-task.md)
 
 ### App Task
 
 **Purpose**: Integrate with external tools and applications.
 
 **Use Cases**:
+
 - Data processing
 - File operations
 - API integrations
 - Tool automation
 
-[Learn more about App Tasks →](app-task.md)
+!!! Learn
+    [More about App Tasks →](app-task.md)
 
 ### Coder Task
 
 **Purpose**: Execute custom code artifacts.
 
 **Use Cases**:
+
 - Custom calculations
 - Data transformation
 - Complex logic implementation
 - Script execution
 
-[Learn more about Coder Tasks →](coder-task.md)
+!!! Learn
+    [More about Coder Tasks →](coder-task.md)
 
 ## Task Configuration Basics
 

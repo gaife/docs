@@ -4,6 +4,10 @@
 
 Human Tasks are designed for workflows that require human intervention, such as approvals, reviews, or decision-making. These tasks pause the workflow execution until human input is received.
 
+## Visual Example
+
+![Human Task Example](./images/human-task.png)
+
 ## Configuration Structure
 
 ```json
@@ -31,6 +35,7 @@ Human Tasks are designed for workflows that require human intervention, such as 
 ## Task Instructions
 
 Human tasks require clear instructions for the assigned user or team. Instructions should:
+
 - Be specific and clear
 - Define expected actions
 - Provide decision criteria
@@ -106,6 +111,7 @@ graph TD
 ## Response Types
 
 Human tasks can have three possible responses:
+
 1. **APPROVED**: Task approved, workflow continues
 2. **REJECTED**: Task rejected, requires revision
 3. **UNDECIDED**: Additional review needed
@@ -113,39 +119,48 @@ Human tasks can have three possible responses:
 ## Best Practices
 
 ### 1. Instructions
+
 ✅ **Do**:
+
 - Write clear, concise instructions
 - Specify decision criteria
 - Include relevant context
 - Define expected outcomes
 
 ❌ **Don't**:
+
 - Use technical jargon
 - Write vague instructions
 - Omit important details
 - Assume knowledge
 
 ### 2. Assignment Rules
+
 ✅ **Do**:
+
 - Set appropriate assignees
 - Configure backup assignments
 - Use team assignments for shared tasks
 - Set reasonable deadlines
 
 ❌ **Don't**:
+
 - Assign to inactive users
 - Skip backup assignments
 - Ignore time zones
 - Use overly complex rules
 
 ### 3. Dependencies
+
 ✅ **Do**:
+
 - Clearly define prerequisites
 - Verify data availability
 - Set proper task order
 - Handle all outcomes
 
 ❌ **Don't**:
+
 - Create circular dependencies
 - Skip validation
 - Ignore error cases
@@ -153,6 +168,7 @@ Human tasks can have three possible responses:
 ## Error Handling
 
 ### Configuration
+
 ```json
 {
   "error_policy": "RAISE",
@@ -162,17 +178,18 @@ Human tasks can have three possible responses:
 ```
 
 ### Common Scenarios
+
 1. **Timeout**
-   - Task not completed within deadline
-   - Automatic escalation
+    - Task not completed within deadline
+    - Automatic escalation
 
 2. **Assignee Unavailable**
-   - Automatic reassignment
-   - Backup assignee notification
+    - Automatic reassignment
+    - Backup assignee notification
 
 3. **Invalid Response**
-   - Validation error
-   - Request for correction
+    - Validation error
+    - Request for correction
 
 ## Integration Examples
 

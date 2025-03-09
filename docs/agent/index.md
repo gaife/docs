@@ -34,19 +34,19 @@ Master the configuration of your agents:
 Learn best practices and validation rules:
 
 1. **[Assignment Rules Guide](guides/assignment-rules.md)**
-   - User assignments
-   - Team assignments
-   - Assignment logic
+    - User assignments
+    - Team assignments
+    - Assignment logic
 
 2. **[Validation Rules](guides/validation-rules.md)**
-   - Input validation
-   - Output validation
-   - Common validation patterns
+    - Input validation
+    - Output validation
+    - Common validation patterns
 
 3. **[Best Practices](guides/best-practices.md)**
-   - Task design
-   - Error handling
-   - Performance optimization
+    - Task design
+    - Error handling
+    - Performance optimization
 
 ## Examples and Tutorials 💡
 

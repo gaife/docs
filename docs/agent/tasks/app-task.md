@@ -4,6 +4,10 @@
 
 App Tasks enable integration with external tools and applications in your workflow. These tasks are designed for operations like data processing, file operations, and API integrations.
 
+## Visual Example
+
+![APP Task Example](./images/app-task.png)
+
 ## Configuration Structure
 
 ```json
@@ -41,6 +45,7 @@ App Tasks enable integration with external tools and applications in your workfl
 ## Provider Types
 
 Available providers for App Tasks:
+
 - PDF
 - CSV
 - Drive
@@ -208,24 +213,28 @@ Available providers for App Tasks:
 
 ### 1. Tool Selection
 ✅ **Do**:
+
 - Choose appropriate provider
 - Verify tool capabilities
 - Check authentication requirements
 - Test integration thoroughly
 
 ❌ **Don't**:
+
 - Use deprecated tools
 - Ignore rate limits
 - Skip error handling
 
 ### 2. Input Configuration
 ✅ **Do**:
+
 - Validate input formats
 - Document requirements
 - Handle file types correctly
 - Set appropriate timeouts
 
 ❌ **Don't**:
+
 - Skip validation
 - Ignore size limits
 - Use hardcoded credentials

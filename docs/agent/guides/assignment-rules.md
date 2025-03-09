@@ -17,11 +17,13 @@ Assignment rules determine:
     Exception rules are used when you need someone to handle error cases or special situations in your workflow.
 
     **How to Configure:**
+
     1. Select "Exception" as the rule type
     2. Choose either a specific user or team
     3. For teams, select "Round Robin" distribution method
 
     **When to Use:**
+
     - Error handling
     - Special case processing
     - Technical support tasks
@@ -30,11 +32,13 @@ Assignment rules determine:
     These rules are for tasks that need human review or approval.
 
     **How to Configure:**
+
     1. Select "Human Feedback" as the rule type
     2. Choose assignee (user or team)
     3. Set distribution method for teams
 
     **When to Use:**
+
     - Document approvals
     - Content review
     - Quality checks
@@ -70,6 +74,7 @@ Assignment rules determine:
     3. Save the assignment
 
     **Best for:**
+
     - Tasks needing specific expertise
     - Individual responsibility
     - Direct accountability
@@ -83,6 +88,7 @@ Assignment rules determine:
     4. Save the assignment
 
     **Best for:**
+
     - Shared workload
     - Backup coverage
     - Balanced distribution
@@ -179,14 +185,14 @@ Assignment rules determine:
 
 === "User Guide"
     1. **Keep It Simple**
-       - Use clear assignments
-       - Set logical rules
-       - Document special cases
+        - Use clear assignments
+        - Set logical rules
+        - Document special cases
 
     2. **Plan for Backup**
-       - Set alternate assignees
-       - Consider team availability
-       - Plan for holidays/time off
+        - Set alternate assignees
+        - Consider team availability
+        - Plan for holidays/time off
 
 === "Developer Reference"
     1. **Code Organization**

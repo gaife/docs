@@ -272,19 +272,19 @@ graph TD
 ## Best Practices
 
 1. **Task Dependencies**
-   - Keep chains simple
-   - Validate data flow
-   - Handle all outcomes
+    - Keep chains simple
+    - Validate data flow
+    - Handle all outcomes
 
 2. **Error Handling**
-   - Define recovery paths
-   - Set retry policies
-   - Log errors properly
+    - Define recovery paths
+    - Set retry policies
+    - Log errors properly
 
 3. **Performance**
-   - Optimize data transfer
-   - Set appropriate timeouts
-   - Monitor execution time
+    - Optimize data transfer
+    - Set appropriate timeouts
+    - Monitor execution time
 
 ## Next Steps
 

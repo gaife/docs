@@ -4,6 +4,10 @@
 
 AI Tasks are designed for intelligent processing operations using artificial intelligence capabilities. These tasks can handle complex operations like text analysis, content generation, and data processing.
 
+## Visual Example
+
+![AI Task Example](./images/ai-task.png)
+
 ## Configuration Structure
 
 ```json
@@ -182,36 +186,42 @@ AI Tasks are designed for intelligent processing operations using artificial int
 
 ### 1. Writing Instructions
 ✅ **Do**:
+
 - Be specific and clear
 - Include examples when helpful
 - Specify format requirements
 - Define expected behavior
 
 ❌ **Don't**:
+
 - Use vague descriptions
 - Omit important details
 - Assume context
 
 ### 2. Input Configuration
 ✅ **Do**:
+
 - Validate input types
 - Set required fields
 - Provide clear descriptions
 - Use appropriate types
 
 ❌ **Don't**:
+
 - Use overly complex structures
 - Skip parameter descriptions
 - Ignore validation
 
 ### 3. Output Configuration
 ✅ **Do**:
+
 - Define clear structure
 - Include all necessary fields
 - Document format requirements
 - Handle error cases
 
 ❌ **Don't**:
+
 - Use ambiguous types
 - Omit error handling
 - Ignore edge cases
@@ -219,6 +229,7 @@ AI Tasks are designed for intelligent processing operations using artificial int
 ## Error Handling
 
 ### Error Policies
+
 ```json
 {
   "error_policy": "RAISE",  // Stop on error
@@ -228,6 +239,7 @@ AI Tasks are designed for intelligent processing operations using artificial int
 ```
 
 ### Validation
+
 1. Input validation
 2. Output validation
 3. Error reporting
@@ -235,6 +247,7 @@ AI Tasks are designed for intelligent processing operations using artificial int
 ## Examples
 
 ### Text Classification
+
 ```json
 {
   "name": "Classify Text",
@@ -282,6 +295,7 @@ AI Tasks are designed for intelligent processing operations using artificial int
 ## Integration with Other Tasks
 
 ### Passing Results
+
 ```mermaid
 graph TD
     A[AI Task] --> B[Human Task]

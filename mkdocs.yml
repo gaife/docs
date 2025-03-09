@@ -1,5 +1,5 @@
-site_name: GAIFE API Documentation
-site_description: Comprehensive API documentation for GAIFE platform
+site_name: GAIFE Documentation
+site_description: Comprehensive Product and API documentation for GAIFE platform
 site_author: GAIFE Team
 site_url: https://docs.gaife.com
 
@@ -34,6 +34,8 @@ theme:
     - content.tabs.link
     - toc.follow
 
+    - navigation.footer
+
   # Color schemes
   palette:
     # Light mode
@@ -53,25 +55,6 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-
-  # palette:
-  #   # Light mode
-  #   - media: "(prefers-color-scheme: light)"
-  #     scheme: default
-  #     toggle:
-  #       icon: material/toggle-switch-off-outline
-  #       name: Switch to dark mode
-  #     primary: indigo
-  #     accent: blue
-
-  #   # Dark mode
-  #   - media: "(prefers-color-scheme: dark)"
-  #     scheme: slate
-  #     toggle:
-  #       icon: material/toggle-switch
-  #       name: Switch to light mode
-  #     primary: indigo
-  #     accent: light blue
 
 # Extensions
 markdown_extensions:
@@ -117,11 +100,6 @@ markdown_extensions:
 
 nav:
   - Overview: index.md
-  - Chat:
-      - chat/index.md
-      - Conversations: chat/conversations.md
-      - Messages: chat/message.md
-      - Webhooks Integration: chat/webhooks.md
   - Agent:
       - agent/index.md
       - Getting Started:
@@ -137,12 +115,20 @@ nav:
       - Parameters:
         - Input Parameters: agent/parameters/input-parameters.md
         - Output Parameters: agent/parameters/output-parameters.md
+      - Knowledge:
+        - Base: agent/knowledge/base.md
+        - Coder Artifact: agent/knowledge/coder-artifact.md
       - Guides:
         - Assignment Rules: agent/guides/assignment-rules.md
         - Validation Rules: agent/guides/validation-rules.md
         - Best Practices: agent/guides/best-practices.md
       - Examples:
           - Task Examples: agent/examples/task-examples.md
+  - Chat:
+    - chat/index.md
+    - Conversations: chat/conversations.md
+    - Messages: chat/message.md
+    - Webhooks Integration: chat/webhooks.md
 
 plugins:
   - search
@@ -153,5 +139,18 @@ plugins:
 dev_addr: 127.0.0.1:8008
 
 # Copyright
-copyright: >
-  Copyright © 2025 GAIFE. All rights reserved.
+copyright: "Copyright © 2025 <a href='https://gaife.com'>GAIFE</a>. All rights reserved."
+extra:
+  generator: false
+  social:
+      - icon: fontawesome/brands/discord
+        link: https://discord.com/invite/MwsSKyBt
+        name: Join GAIFE Discord server
+
+      - icon: fontawesome/brands/linkedin
+        link: https://in.linkedin.com/company/gaife
+        name: Follow GAIFE on LinkedIn
+
+      - icon: fontawesome/brands/github
+        link: https://github.com/gaife
+        name: GAIFE GitHub repository
