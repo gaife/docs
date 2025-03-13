@@ -21,32 +21,33 @@ Content-Type: application/json
 The `usecase` field determines the conversation's purpose and behavior:
 
 1. **DEFAULT** (`"usecase": "DEFAULT"`)
-    - Standard conversation, chat with the GAIFE system
-    - Used for general messaging purposes
+
+   - Standard conversation, chat with the GAIFE system
+   - Used for general messaging purposes
 
 2. **WORKFLOW_EXECUTION** (`"usecase": "WORKFLOW_EXECUTION"`)
-    - Used when executing an existing workflow
-    - Automatically sets metadata with `workflow_id` from **config**
-    - Enables workflow-specific message processing
+   - Used when executing an existing workflow
+   - Automatically sets metadata with `workflow_id` from **config**
+   - Enables workflow-specific message processing
 
 !!! info
-    Optionally, configure a `callback_url` in `config` to receive a [webhook/callback](./webhooks.md) on every [message of conversation](./message.md).
+Optionally, configure a `callback_url` in `config` to receive a [webhook/callback](./webhooks.md) on every [message of conversation](./message.md).
 
 ### Request Body
 
 ```json
 {
-    "channel": "API",
-    "usecase": "WORKFLOW_EXECUTION",  // One of: DEFAULT, WORKFLOW_EXECUTION
-    "config": {
-        "workflow_id": "string", // Required, the ID of the workflow to execute
-        "callback_url": "string", // To receive a webhook on every message of conversation
-        // Additional configuration
-    },
-    "metadata": {
-        // Optional custom data
-    },
-    "team_id": "integer"  // Optional
+  "channel": "API",
+  "usecase": "WORKFLOW_EXECUTION", // One of: DEFAULT, WORKFLOW_EXECUTION
+  "config": {
+    "workflow_id": "string", // Required, the ID of the workflow to execute
+    "callback_url": "string" // To receive a webhook on every message of conversation
+    // Additional configuration
+  },
+  "metadata": {
+    // Optional custom data
+  },
+  "team_id": "integer" // Optional
 }
 ```
 
@@ -54,14 +55,14 @@ The `usecase` field determines the conversation's purpose and behavior:
 
 ```json
 {
-    "id": "string"  // conversation ID without hyphens
+  "id": "string" // conversation ID without hyphens
 }
 ```
 
 ### Example Usecases Request Body
 
 === "Workflow Execution"
-    ```json
+`json
     {
         "channel": "API",
         "usecase": "WORKFLOW_EXECUTION",
@@ -70,10 +71,10 @@ The `usecase` field determines the conversation's purpose and behavior:
             "callback_url": "https://example.com/webhook"
         }
     }
-    ```
+    `
 
 === "Default"
-    ```json
+`json
     {
         "channel": "API",
         "usecase": "DEFAULT",
@@ -81,7 +82,7 @@ The `usecase` field determines the conversation's purpose and behavior:
             "callback_url": "https://example.com/webhook"
         }
     }
-    ```
+    `
 
 ### Notes
 
@@ -94,7 +95,7 @@ The `usecase` field determines the conversation's purpose and behavior:
 ### Example Request
 
 ```bash
-curl 'https://developer.gaife.com/api/conversations' \
+curl 'https://beta-api.gaife.com/developer/api/conversations' \
   -H 'Authorization: Bearer {{API_KEY}}' \
   -H 'Content-Type: application/json' \
   --data-raw '{
@@ -111,7 +112,7 @@ curl 'https://developer.gaife.com/api/conversations' \
 
 ```json
 {
-    "id": "550e8400e29b41d4a716446655440000"
+  "id": "550e8400e29b41d4a716446655440000"
 }
 ```
 
@@ -136,7 +137,7 @@ Retrieve all messages in a conversation.
 ### Example Request
 
 ```bash
-curl 'https://developer.gaife.com/api/conversations/550e8400e29b41d4a716446655440000/messages' \
+curl 'https://beta-api.gaife.com/developer/api/conversations/550e8400e29b41d4a716446655440000/messages' \
   -H 'Authorization: Bearer {{API_KEY}}' \
   -H 'Content-Type: application/json'
 ```
@@ -147,22 +148,22 @@ curl 'https://developer.gaife.com/api/conversations/550e8400e29b41d4a71644665544
 
 ```json
 [
-    {
-        "id": "string",
-        "conversation_id": "string",
-        "content": "string",
-        "content_type": "TEXT",  // One of: TEXT, IMAGE, VIDEO, AUDIO, etc.
-        "filename": "string",    // Optional, present for media messages
-        "type": "USER_INPUT",    // Message type
-        "channel": "string",     // Communication channel
-        "status": "RECEIVED",    // Message status
-        "metadata": {
-            "key": "value"      // Optional custom metadata
-        },
-        "created_by": "string",
-        "created_at": "datetime",
-        "updated_at": "datetime"
-    }
+  {
+    "id": "string",
+    "conversation_id": "string",
+    "content": "string",
+    "content_type": "TEXT", // One of: TEXT, IMAGE, VIDEO, AUDIO, etc.
+    "filename": "string", // Optional, present for media messages
+    "type": "USER_INPUT", // Message type
+    "channel": "string", // Communication channel
+    "status": "RECEIVED", // Message status
+    "metadata": {
+      "key": "value" // Optional custom metadata
+    },
+    "created_by": "string",
+    "created_at": "datetime",
+    "updated_at": "datetime"
+  }
 ]
 ```
 
@@ -175,24 +176,27 @@ curl 'https://developer.gaife.com/api/conversations/550e8400e29b41d4a71644665544
 ### Notes
 
 1. **Content Types**:
-    - `TEXT`: Regular text messages
-    - `IMAGE`: Image files
-    - `VIDEO`: Video files
-    - `AUDIO`: Audio files
+
+   - `TEXT`: Regular text messages
+   - `IMAGE`: Image files
+   - `VIDEO`: Video files
+   - `AUDIO`: Audio files
 
 2. **Message Types**:
-    - `USER_INPUT`: Messages from users
-    - Other types as per your MessageType choices
+
+   - `USER_INPUT`: Messages from users
+   - Other types as per your MessageType choices
 
 3. **Message Status**:
-    - `RECEIVED`: Message has been received
-    - Other statuses as per your MessageStatus choices
+
+   - `RECEIVED`: Message has been received
+   - Other statuses as per your MessageStatus choices
 
 4. **Response Fields**:
-    - `id`: Unique message identifier
-    - `content`: Message content/text
-    - `filename`: Present only for media messages
-    - `metadata`: Optional JSON object for additional data
+   - `id`: Unique message identifier
+   - `content`: Message content/text
+   - `filename`: Present only for media messages
+   - `metadata`: Optional JSON object for additional data
 
 ## Next Steps
 
