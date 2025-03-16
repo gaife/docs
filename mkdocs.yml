@@ -144,11 +144,11 @@ extra:
   generator: false
   social:
       - icon: fontawesome/brands/discord
-        link: https://discord.com/invite/MwsSKyBt
+        link: https://discord.gg/Zxm5yaSz
         name: Join GAIFE Discord server
 
       - icon: fontawesome/brands/linkedin
-        link: https://in.linkedin.com/company/gaife
+        link: https://linkedin.com/company/gaife
         name: Follow GAIFE on LinkedIn
 
       - icon: fontawesome/brands/github

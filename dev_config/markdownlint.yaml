@@ -3,6 +3,7 @@ MD007: false  # Unordered list indentation
 MD013: false  # Line length
 MD022: false  # Headings should be surrounded by blank lines
 MD024: false  # Multiple headings with the same content
+MD030: false  # Spaces after colons in headers
 MD031: false  # Fenced code blocks should be surrounded by blank lines
 MD032: false  # Lists should be surrounded by blank lines
 MD046: false  # Code block style
