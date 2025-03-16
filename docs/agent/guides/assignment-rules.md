@@ -1,18 +1,21 @@
 # Assignment Rules Guide
 
-Assignment rules define how tasks are assigned to users or teams in your workflow. Understanding and configuring these rules correctly is crucial for efficient workflow execution.
+Assignment rules define how tasks are assigned to users or teams in your workflow. Understanding and configuring these
+rules correctly is crucial for efficient workflow execution.
 
 ## Overview
 
 Assignment rules determine:
-- Who can handle tasks
-- How tasks are distributed
-- What happens during exceptions
-- When human feedback is needed
+
+-   Who can handle tasks
+-   How tasks are distributed
+-   What happens during exceptions
+-   When human feedback is needed
 
 ## Rule Types
 
 === "User Guide"
+
     ### Exception Rules
     Exception rules are used when you need someone to handle error cases or special situations in your workflow.
 
@@ -44,6 +47,7 @@ Assignment rules determine:
     - Quality checks
 
 === "Developer Reference"
+
     ### Exception Rules
     ```json
     {
@@ -66,6 +70,7 @@ Assignment rules determine:
 ## Assignment Types
 
 === "User Guide"
+
     ### Assigning to a User
     When you need a specific person to handle the task:
 
@@ -94,6 +99,7 @@ Assignment rules determine:
     - Balanced distribution
 
 === "Developer Reference"
+
     ### User Assignment
     ```json
     {
@@ -114,6 +120,7 @@ Assignment rules determine:
 ## Configuration Requirements
 
 === "User Guide"
+
     ### Basic Requirements
     1. At least one assignment rule is needed
     2. Select a valid user or team
@@ -130,6 +137,7 @@ Assignment rules determine:
     - Check user availability
 
 === "Developer Reference"
+
     ### Validation Schema
     ```json
     {
@@ -151,6 +159,7 @@ Assignment rules determine:
 ## Common Use Cases
 
 === "User Guide"
+
     ### Document Review Process
     1. Create Human Feedback rule
     2. Assign to review team
@@ -162,6 +171,7 @@ Assignment rules determine:
     3. Set notification preferences
 
 === "Developer Reference"
+
     ### Document Review Configuration
     ```json
     {
@@ -184,6 +194,7 @@ Assignment rules determine:
 ## Best Practices
 
 === "User Guide"
+
     1. **Keep It Simple**
         - Use clear assignments
         - Set logical rules
@@ -195,6 +206,7 @@ Assignment rules determine:
         - Plan for holidays/time off
 
 === "Developer Reference"
+
     1. **Code Organization**
        ```json
        {
@@ -211,9 +223,3 @@ Assignment rules determine:
        - Verify IDs before saving
        - Check permissions
        - Test rule combinations
-
-## Need Help?
-
-- Review the [Task Types](../tasks/overview.md) guide
-- Contact support team
-- Visit developer forum

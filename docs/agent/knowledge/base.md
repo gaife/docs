@@ -2,18 +2,21 @@
 
 ## Knowledge Agents and Workflows
 
-Knowledge Agents serve as repositories of specialized knowledge that **workflow agents** can leverage to complete tasks. The workflow agent can access and utilize the `Coder` and `Rule` artifacts to:
+Knowledge Agents serve as repositories of specialized knowledge that **workflow agents** can leverage to complete tasks.
+The workflow agent can access and utilize the `Coder` and `Rule` artifacts to:
 
-- Execute calculations and transformations (Coder artifacts)
-- Apply business rules and validations (Rule artifacts)
-- Make decisions based on predefined criteria
-- Ensure consistency across automated processes
+-   Execute calculations and transformations (Coder artifacts)
+-   Apply business rules and validations (Rule artifacts)
+-   Make decisions based on predefined criteria
+-   Ensure consistency across automated processes
 
-This integration allows for more sophisticated automation while maintaining separation between process flow and domain knowledge.
+This integration allows for more sophisticated automation while maintaining separation between process flow and domain
+knowledge.
 
 ## Overview
 
-The Knowledge Agent feature in Gaife allows you to create specialized knowledge bases for various automation tasks. This documentation covers how to access, configure, and use Knowledge Agents in the Gaife platform.
+The Knowledge Agent feature in Gaife allows you to create specialized knowledge bases for various automation tasks. This
+documentation covers how to access, configure, and use Knowledge Agents in the Gaife platform.
 
 ## Creating a Knowledge Base
 
@@ -35,30 +38,31 @@ The Knowledge Agent feature in Gaife allows you to create specialized knowledge 
 
 The Knowledge Agent interface consists of:
 
-- **Header Section**: Displays the title of the knowledge agent with its description
-- **Navigation Tabs**: Code, Rules, Prompts, and Data Relations
-- **Search Bar**: Allows searching for specific artifacts within the knowledge base
-- **Filter Status**: Option to filter items by their status
-- **Create Button**: Used to add new artifacts to the knowledge base
+-   **Header Section**: Displays the title of the knowledge agent with its description
+-   **Navigation Tabs**: Code, Rules, Prompts, and Data Relations
+-   **Search Bar**: Allows searching for specific artifacts within the knowledge base
+-   **Filter Status**: Option to filter items by their status
+-   **Create Button**: Used to add new artifacts to the knowledge base
 
 ## Artifacts Table
 
 The main table displays artifacts with the following columns:
 
-| Column | Description |
-|:------:|-------------|
-| Type | The category of the artifact (e.g., Coder) |
-| Artifact Name | Name of the artifact with an identifier |
-| Details | View details of the artifact (eye icon) |
-| Status | Current status of the artifact (e.g., DRAFT, PUBLISH) |
-| Created On | Date when the artifact was created |
-| Last Updated | Date when the artifact was last modified |
+|    Column     | Description                                           |
+| :-----------: | ----------------------------------------------------- |
+|     Type      | The category of the artifact (e.g., Coder)            |
+| Artifact Name | Name of the artifact with an identifier               |
+|    Details    | View details of the artifact (eye icon)               |
+|    Status     | Current status of the artifact (e.g., DRAFT, PUBLISH) |
+|  Created On   | Date when the artifact was created                    |
+| Last Updated  | Date when the artifact was last modified              |
 
 ## Working with Artifacts
 
 ### Viewing Existing Artifacts
 
-The knowledge base will display all artifacts associated with it in the main table. Each artifact includes its type, name, status, and relevant dates.
+The knowledge base will display all artifacts associated with it in the main table. Each artifact includes its type,
+name, status, and relevant dates.
 
 ### Creating New Artifacts
 
@@ -80,19 +84,26 @@ To create a new artifact:
 
 ### 💻 Code Tab
 
-The Code tab displays coding artifacts that handle calculations and logic for your automation. These components handle the computational aspects of your process. Create "Coder" type artifacts to add code-related knowledge to your knowledge base.
+The Code tab displays coding artifacts that handle calculations and logic for your automation. These components handle
+the computational aspects of your process. Create "Coder" type artifacts to add code-related knowledge to your knowledge
+base.
 
 ### 📏 Rules Tab
 
-The Rules tab contains business rules and constraints that govern your process. These rules ensure compliance with business requirements and validation standards. Add "Rule" type artifacts to define the business logic for your knowledge agent.
+The Rules tab contains business rules and constraints that govern your process. These rules ensure compliance with
+business requirements and validation standards. Add "Rule" type artifacts to define the business logic for your
+knowledge agent.
 
 ### 💬 Prompts Tab (Coming Soon)
 
-The Prompts tab includes templates and AI prompts used to guide your automated processes. These prompts help structure AI interactions for consistent results. This feature will allow you to design and store prompts for AI interactions.
+The Prompts tab includes templates and AI prompts used to guide your automated processes. These prompts help structure
+AI interactions for consistent results. This feature will allow you to design and store prompts for AI interactions.
 
 ### 🔄 Data Relations Tab (Coming Soon)
 
-The Data Relations tab shows connections between different data sources and how they interact with your process. This includes mappings to databases or external systems. This feature will allow you to define data schemas and relationships.
+The Data Relations tab shows connections between different data sources and how they interact with your process. This
+includes mappings to databases or external systems. This feature will allow you to define data schemas and
+relationships.
 
 ## Managing Artifacts
 
@@ -131,12 +142,13 @@ If you encounter issues with your Knowledge Agent:
 
 As an example, an "Invoice Generation" knowledge agent might include:
 
-- **Code artifacts**: Invoice calculation formulas
-- **Rules**: Validation rules for invoice fields
-- **Prompts**: Templates for generating invoice descriptions
-- **Data Relations**: Connections to customer and product databases
+-   **Code artifacts**: Invoice calculation formulas
+-   **Rules**: Validation rules for invoice fields
+-   **Prompts**: Templates for generating invoice descriptions
+-   **Data Relations**: Connections to customer and product databases
 
-This knowledge agent would automate the creation of invoices according to established business rules while maintaining consistency and accuracy.
+This knowledge agent would automate the creation of invoices according to established business rules while maintaining
+consistency and accuracy.
 
 ## Managing Knowledge Bases
 
@@ -161,4 +173,4 @@ To delete a knowledge base:
 
 ## 📚 Related Resources
 
-- [Coder Artifact](coder-artifact.md)
+-   [Coder Artifact](coder-artifact.md)

@@ -5,24 +5,29 @@ This guide outlines recommended practices for creating effective and maintainabl
 ## Task Design
 
 ### Naming Conventions
+
 ✅ **Do**:
+
 ```json
 {
-  "name": "ValidateCustomerData",
-  "description": "Validates customer information from input form"
+    "name": "ValidateCustomerData",
+    "description": "Validates customer information from input form"
 }
 ```
 
 ❌ **Don't**:
+
 ```json
 {
-  "name": "task1",
-  "description": "validates data"
+    "name": "task1",
+    "description": "validates data"
 }
 ```
 
 ### Task Organization
+
 1. **Logical Grouping**
+
     ```mermaid
     graph TD
         A[Data Input] --> B[Data Validation]
@@ -38,7 +43,9 @@ This guide outlines recommended practices for creating effective and maintainabl
 ## Input/Output Configuration
 
 ### Input Parameters
+
 1. **Clear Naming**
+
     ```json
     {
         "name": "customerEmail",
@@ -48,6 +55,7 @@ This guide outlines recommended practices for creating effective and maintainabl
     ```
 
 2. **Type Selection**
+
     - Use simplest type possible
     - Consider data flow requirements
     - Document format requirements
@@ -64,7 +72,9 @@ This guide outlines recommended practices for creating effective and maintainabl
     ```
 
 ### Output Parameters
+
 1. **Structured Output**
+
     ```json
     {
         "name": "validationResult",
@@ -84,7 +94,9 @@ This guide outlines recommended practices for creating effective and maintainabl
 ## Task-Specific Best Practices
 
 ### AI Tasks
+
 1. **Clear Instructions**
+
     ```json
     {
         "instructions": "Analyze the customer feedback and categorize the sentiment as POSITIVE, NEGATIVE, or NEUTRAL. Extract key points and improvement suggestions.",
@@ -102,7 +114,9 @@ This guide outlines recommended practices for creating effective and maintainabl
     - Structure for easy processing
 
 ### Human Tasks
+
 1. **Clear Decision Points**
+
     ```json
     {
         "instructions": "Review the generated content for accuracy and brand alignment. Choose APPROVE or REJECT and provide feedback.",
@@ -123,7 +137,9 @@ This guide outlines recommended practices for creating effective and maintainabl
     ```
 
 ### App Tasks
+
 1. **Tool Configuration**
+
     ```json
     {
         "tool_name": "EmailService",
@@ -148,6 +164,7 @@ This guide outlines recommended practices for creating effective and maintainabl
     ```
 
 ### Coder Tasks
+
 1. **Code Artifact Management**
     ```json
     {
@@ -165,6 +182,7 @@ This guide outlines recommended practices for creating effective and maintainabl
 ## Error Handling
 
 ### Global Error Policies
+
 ```json
 {
     "error_policy": "RAISE",
@@ -174,6 +192,7 @@ This guide outlines recommended practices for creating effective and maintainabl
 ```
 
 ### Task-Level Error Handling
+
 ```json
 {
     "on_error": {
@@ -187,30 +206,35 @@ This guide outlines recommended practices for creating effective and maintainabl
 ## Performance Optimization
 
 ### 1. Task Efficiency
-- Minimize dependencies
-- Optimize data transfer
-- Use appropriate task types
+
+-   Minimize dependencies
+-   Optimize data transfer
+-   Use appropriate task types
 
 ### 2. Resource Management
-- Configure timeouts
-- Set memory limits
-- Monitor execution time
+
+-   Configure timeouts
+-   Set memory limits
+-   Monitor execution time
 
 ## Security Best Practices
 
 ### 1. Data Handling
-- Minimize sensitive data
-- Use secure parameters
-- Implement data masking
+
+-   Minimize sensitive data
+-   Use secure parameters
+-   Implement data masking
 
 ### 2. Access Control
-- Proper assignment rules
-- Role-based access
-- Audit logging
+
+-   Proper assignment rules
+-   Role-based access
+-   Audit logging
 
 ## Testing Guidelines
 
 ### 1. Task Testing
+
 ```json
 {
     "test_cases": [
@@ -223,31 +247,36 @@ This guide outlines recommended practices for creating effective and maintainabl
 ```
 
 ### 2. Workflow Testing
-- Test complete flows
-- Validate error handling
-- Check performance
+
+-   Test complete flows
+-   Validate error handling
+-   Check performance
 
 ## Maintenance
 
 ### 1. Documentation
-- Clear descriptions
-- Updated configurations
-- Change history
-- Usage examples
+
+-   Clear descriptions
+-   Updated configurations
+-   Change history
+-   Usage examples
 
 ### 2. Monitoring
-- Track execution time
-- Monitor error rates
-- Review usage patterns
+
+-   Track execution time
+-   Monitor error rates
+-   Review usage patterns
 
 ## Common Pitfalls to Avoid
 
 1. **Over-complexity**
+
     - Too many dependencies
     - Unnecessary tasks
     - Complex logic
 
 2. **Poor Error Handling**
+
     - Missing error cases
     - Unclear error messages
     - No recovery path
@@ -256,8 +285,3 @@ This guide outlines recommended practices for creating effective and maintainabl
     - Missing input validation
     - Weak type checking
     - Incomplete error checks
-
-## Next Steps
-
-1. Review [Validation Rules](validation-rules.md)
-2. Check [Task Examples](../examples/task-examples.md)

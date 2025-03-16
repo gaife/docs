@@ -2,16 +2,17 @@
 
 ## Overview
 
-The Coder Artifact in Gaife allows you to create custom code functions that process inputs and generate structured outputs. These artifacts are used in knowledge agents to handle the computational logic of your automation workflows.
+The Coder Artifact in Gaife allows you to create custom code functions that process inputs and generate structured
+outputs. These artifacts are used in knowledge agents to handle the computational logic of your automation workflows.
 
 ## Interface Layout
 
 The Coder Artifact interface consists of:
 
-- **Header Section**: Displays the artifact name with edit option
-- **Action Buttons**: Update and Publish buttons
-- **Code Generation Assistant**: AI-powered assistant to help generate code
-- **Generated Code**: Python editor with syntax highlighting
+-   **Header Section**: Displays the artifact name with edit option
+-   **Action Buttons**: Update and Publish buttons
+-   **Code Generation Assistant**: AI-powered assistant to help generate code
+-   **Generated Code**: Python editor with syntax highlighting
 
 ## Creating a Coder Artifact
 
@@ -20,11 +21,13 @@ The Coder Artifact interface consists of:
 When creating a new Coder Artifact, you'll see the following interface elements:
 
 1. **Code Generation Assistant**:
+
     - Powered by GAIFE AI
     - Provides a conversational interface to describe what you want to build
     - Options to define input parameters, expected output, and add rules
 
 2. **Supporting Files Section**:
+
     - Rules (.txt, .json, .yaml)
     - Sample data (.csv, .json)
 
@@ -39,19 +42,20 @@ When creating a new Coder Artifact, you'll see the following interface elements:
 Every Coder Artifact must follow this structure:
 
 1. **Main Function**:
+
     - Must accept an `arguments` parameter that contains all input data
     - Process the input according to business logic
     - Return structured output data
 
 2. **Required Boilerplate Code**:
-   ```python
-    # Calculate and store the result
-    result = {}
-    # Call the function for execution here
-    output = [your_function_name](arguments)
-    # Store the output in result dictionary
-    result['output'] = output
-   ```
+    ```python
+     # Calculate and store the result
+     result = {}
+     # Call the function for execution here
+     output = [your_function_name](arguments)
+     # Store the output in result dictionary
+     result['output'] = output
+    ```
 
 ### Example Implementation
 
@@ -125,29 +129,33 @@ result['output'] = output
 
 ### Function Parameters
 
-Every Coder Artifact function must accept a single parameter called `arguments`, which is a dictionary containing all input data passed to the function.
+Every Coder Artifact function must accept a single parameter called `arguments`, which is a dictionary containing all
+input data passed to the function.
 
 ### Input Handling
 
 Proper input handling is essential:
-- Extract values using `arguments.get('key', default_value)`
-- Include type conversion for input values (e.g., `float()`, `int()`)
-- Handle potential missing or malformed data
-- Implement error handling with try/except blocks
+
+-   Extract values using `arguments.get('key', default_value)`
+-   Include type conversion for input values (e.g., `float()`, `int()`)
+-   Handle potential missing or malformed data
+-   Implement error handling with try/except blocks
 
 ### Processing Logic
 
 Implement your business logic in the middle section of your function:
-- Perform calculations
-- Apply business rules
-- Format data as needed
+
+-   Perform calculations
+-   Apply business rules
+-   Format data as needed
 
 ### Output Structure
 
 Return a structured dictionary that matches your expected output format:
-- Nest data in appropriate hierarchies
-- Format values consistently
-- Include all required fields
+
+-   Nest data in appropriate hierarchies
+-   Format values consistently
+-   Include all required fields
 
 ### Boilerplate Code
 
@@ -164,7 +172,8 @@ result['output'] = output
 
 ## 🏷️ Naming Conventions
 
-Following consistent naming conventions ensures readability, maintainability, and consistency across all Gaife automation workflows.
+Following consistent naming conventions ensures readability, maintainability, and consistency across all Gaife
+automation workflows.
 
 ### Arguments Dictionary Naming Conventions
 
@@ -181,19 +190,19 @@ Following consistent naming conventions ensures readability, maintainability, an
 
 ✅ **Recommended**:
 
-- `customer_id`
-- `invoice_date`
-- `items_to_be_billed`
-- `tax_rate`
-- `shipping_address`
-- `payment_method`
+-   `customer_id`
+-   `invoice_date`
+-   `items_to_be_billed`
+-   `tax_rate`
+-   `shipping_address`
+-   `payment_method`
 
 ❌ **Avoid**:
 
-- `CustomerID` (not snake_case)
-- `inv_dt` (unclear abbreviation)
-- `i` (not descriptive)
-- `calculation amount` (spaces instead of underscores)
+-   `CustomerID` (not snake_case)
+-   `inv_dt` (unclear abbreviation)
+-   `i` (not descriptive)
+-   `calculation amount` (spaces instead of underscores)
 
 #### Nested Arguments
 
@@ -211,6 +220,7 @@ postal_code = address.get('postal_code', '')
 #### General Rules
 
 1. **Result Structure**: Always use the following structure:
+
     ```python
     result = {}
     output = your_function_name(arguments)
@@ -218,6 +228,7 @@ postal_code = address.get('postal_code', '')
     ```
 
 2. **Primary Output Keys**:
+
     - Use snake_case for all keys (lowercase with underscores)
     - Format values consistently based on their type
     - For categories or sections, use descriptive names
@@ -230,6 +241,7 @@ postal_code = address.get('postal_code', '')
 #### Examples of Well-Formatted Output Keys
 
 ✅ **Recommended Output Structure**:
+
 ```python
 return {
     'calculation_results': {
@@ -244,6 +256,7 @@ return {
 ```
 
 ❌ **Avoid**:
+
 ```python
 return {
     'calculation amount': {  # spaces instead of underscores
@@ -259,19 +272,19 @@ return {
 
 #### Numeric Values
 
-- Format currency values with two decimal places: `f'{value:.2f}'`
-- Use integers for counts: `item_count = int(value)`
-- Format percentages consistently: `f'{value:.1f}%'` or as decimal values
+-   Format currency values with two decimal places: `f'{value:.2f}'`
+-   Use integers for counts: `item_count = int(value)`
+-   Format percentages consistently: `f'{value:.1f}%'` or as decimal values
 
 #### Date and Time Values
 
-- Use ISO format (YYYY-MM-DD) for date storage: `2023-04-15`
-- For display formatting, use consistent patterns: `'%d-%m-%Y'`
-- Include timezone information for time-sensitive operations
+-   Use ISO format (YYYY-MM-DD) for date storage: `2023-04-15`
+-   For display formatting, use consistent patterns: `'%d-%m-%Y'`
+-   Include timezone information for time-sensitive operations
 
 #### Boolean Values
 
-- Use clear boolean names: `is_taxable`, `has_discount`, `requires_shipping`
+-   Use clear boolean names: `is_taxable`, `has_discount`, `requires_shipping`
 
 ## 🚀 Testing and Publishing
 
@@ -308,20 +321,15 @@ The Coder Artifact is a key component in the Workflow Agent ecosystem:
     - Workflow agents pass input parameters to your Coder function
     - The function processes these parameters according to your logic
     - Output parameters are returned to the workflow for further processing or final delivery
-3. **Complex Processing**: Workflow agents can chain multiple Coder Artifacts together to handle complex calculations and data transformations
-4. **Automation Pipeline**: Acts as the computational engine for automation workflows, handling everything from simple calculations to complex business logic
+3. **Complex Processing**: Workflow agents can chain multiple Coder Artifacts together to handle complex calculations
+   and data transformations
+4. **Automation Pipeline**: Acts as the computational engine for automation workflows, handling everything from simple
+   calculations to complex business logic
 
 ### Use Cases in Workflows
 
-- **Financial Calculations**: Process invoice amounts, taxes, discounts as shown in the example
-- **Data Transformation**: Convert data between formats or structures
-- **Decision Logic**: Implement complex business rules that determine workflow paths
-- **API Integration**: Pre-process data before sending to external systems
-- **Analytics**: Perform statistical analysis or data aggregation within workflows
-
-## 📚 Related Resources
-
-- 📖 Python Coding Best Practices
-- 🧮 Business Logic Implementation Guide
-- 🔌 Data Integration Patterns
-- 🧑‍💻 Learn about [Coder Task](../tasks/coder-task.md)
+-   **Financial Calculations**: Process invoice amounts, taxes, discounts as shown in the example
+-   **Data Transformation**: Convert data between formats or structures
+-   **Decision Logic**: Implement complex business rules that determine workflow paths
+-   **API Integration**: Pre-process data before sending to external systems
+-   **Analytics**: Perform statistical analysis or data aggregation within workflows

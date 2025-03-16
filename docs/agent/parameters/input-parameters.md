@@ -1,10 +1,12 @@
 # Input Parameters
 
-Input parameters define the data that your tasks will process. Understanding how to configure them correctly is crucial for building effective workflows.
+Input parameters define the data that your tasks will process. Understanding how to configure them correctly is crucial
+for building effective workflows.
 
 ## Parameter Types
 
 === "Basic Types"
+
     | Type | Description | Example |
     |------|-------------|---------|
     | STRING | Text data | "Hello World" |
@@ -13,6 +15,7 @@ Input parameters define the data that your tasks will process. Understanding how
     | BOOLEAN | True/false values | true |
 
 === "Complex Types"
+
     | Type | Description | Example | Restrictions |
     |------|-------------|---------|--------------|
     | ARRAY | List of items | `["item1", "item2"]` | Maximum 2D arrays allowed |
@@ -20,6 +23,7 @@ Input parameters define the data that your tasks will process. Understanding how
     | ENUM | Limited choices | `"APPROVED"` | Fixed set of values |
 
 === "Special Types"
+
     | Type | Description | Use Case |
     |------|-------------|----------|
     | OUTPUT_ARTIFACT | Reference to task output | Inter-task data flow |
@@ -28,6 +32,7 @@ Input parameters define the data that your tasks will process. Understanding how
 ## Complex Type Configuration
 
 === "User Guide"
+
     ### Array Parameters
 
     ⚠️ **Important Rules**:
@@ -49,6 +54,7 @@ Input parameters define the data that your tasks will process. Understanding how
     - Each property needs name, description, type, and required fields
 
 === "Developer Reference"
+
     ### Array Structure
     ```json
     // 1D Array
@@ -115,6 +121,7 @@ Input parameters define the data that your tasks will process. Understanding how
 ## Parameter Sources
 
 === "User Guide"
+
     ### Available Sources
     1. **Task Config**
         - Set during task setup
@@ -132,6 +139,7 @@ Input parameters define the data that your tasks will process. Understanding how
         - Interactive forms
 
 === "Developer Reference"
+
     ```json
     // Task Config
     {
@@ -153,6 +161,7 @@ Input parameters define the data that your tasks will process. Understanding how
 ## Data Sources
 
 === "User Guide"
+
     ### Memory Storage
     - Default storage method
     - For regular data volumes
@@ -164,6 +173,7 @@ Input parameters define the data that your tasks will process. Understanding how
     - Requires data_lake_id
 
 === "Developer Reference"
+
     ```json
     // Memory Storage
     {
@@ -180,6 +190,7 @@ Input parameters define the data that your tasks will process. Understanding how
 ## Configuration Examples
 
 === "Basic Examples"
+
     ### String Parameter
     ```json
     {
@@ -205,6 +216,7 @@ Input parameters define the data that your tasks will process. Understanding how
     ```
 
 === "Complex Examples"
+
     ### 2D Array Example
     ```json
     {
@@ -251,6 +263,7 @@ Input parameters define the data that your tasks will process. Understanding how
 ## Validation Rules
 
 === "Type Rules"
+
     1. **Object Properties**
         - Only basic types allowed (string, integer, float, boolean)
         - All fields required (name, description, type, required)
@@ -267,6 +280,7 @@ Input parameters define the data that your tasks will process. Understanding how
         - Proper null handling
 
 === "Invalid Examples"
+
     ```json
     // ❌ 3D Array (Not Allowed)
     {
@@ -298,16 +312,19 @@ Input parameters define the data that your tasks will process. Understanding how
 ## Best Practices
 
 1. **Naming Conventions**
+
     - Use clear, descriptive names
     - Follow consistent conventions
     - Indicate purpose in name
 
 2. **Documentation**
+
     - Be specific and clear
     - Include format requirements
     - Note any dependencies
 
 3. **Type Selection**
+
     - Use simplest type possible
     - Consider data flow requirements
     - Plan for scale
@@ -319,17 +336,11 @@ Input parameters define the data that your tasks will process. Understanding how
 
 ## Common Issues and Solutions
 
-| Issue | Solution |
-|-------|----------|
-| Type mismatch | Verify data type matches configuration |
-| Missing required value | Check source configuration |
-| Invalid format | Review validation rules |
-| Data source error | Verify data lake configuration |
-| Invalid object property | Use only allowed basic types |
-| Array depth exceeded | Restructure to 2D maximum |
-
-## Next Steps
-
-- Learn about [Output Parameters](output-parameters.md)
-- Understand [Validation Rules](../guides/validation-rules.md)
-- Check [Task Examples](../examples/task-examples.md)
+| Issue                   | Solution                               |
+| ----------------------- | -------------------------------------- |
+| Type mismatch           | Verify data type matches configuration |
+| Missing required value  | Check source configuration             |
+| Invalid format          | Review validation rules                |
+| Data source error       | Verify data lake configuration         |
+| Invalid object property | Use only allowed basic types           |
+| Array depth exceeded    | Restructure to 2D maximum              |
