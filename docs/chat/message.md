@@ -1,13 +1,14 @@
 # Messages
 
-Messages are individual communications within a conversation. Each message can contain text or media content and maintains metadata about its creation and status.
+Messages are individual communications within a conversation. Each message can contain text or media content and
+maintains metadata about its creation and status.
 
 ## Send Message
 
 Send a new message in a conversation.
 
-- **Endpoint**: `POST /messages`
-- **Authentication**: API Key Required
+-   **Endpoint**: `POST /messages`
+-   **Authentication**: API Key Required
 
 ### Headers
 
@@ -22,16 +23,16 @@ The `content_type` field determines the message format and required fields:
 
 1. **TEXT** (`"content_type": "text"`)
 
-   - Basic text messages
-   - Requires `content` field
-   - No file handling needed
+    - Basic text messages
+    - Requires `content` field
+    - No file handling needed
 
 2. **MEDIA** (`audio/*, image/*, application/pdf, etc.`)
-   - Used for file attachments
-   - Requires `filename` field
-   - Must obtain pre-signed URL before upload
-   - Supports various formats (audio, image, PDF, XLSX, CSV)
-   - More detail below [Media Handling](#media-handling)
+    - Used for file attachments
+    - Requires `filename` field
+    - Must obtain pre-signed URL before upload
+    - Supports various formats (audio, image, PDF, XLSX, CSV)
+    - More detail below [Media Handling](#media-handling)
 
 ### Request Body
 
@@ -48,12 +49,12 @@ The `content_type` field determines the message format and required fields:
 
 ```json
 {
-  "conversation": "550e8400e29b41d4a716446655440000",
-  "content": "Hello world!",
-  "content_type": "text",
-  "metadata": {
-    // Optional metadata
-  }
+    "conversation": "550e8400e29b41d4a716446655440000",
+    "content": "Hello world!",
+    "content_type": "text",
+    "metadata": {
+        // Optional metadata
+    }
 }
 ```
 
@@ -61,12 +62,12 @@ The `content_type` field determines the message format and required fields:
 
 ```json
 {
-  "conversation": "550e8400e29b41d4a716446655440000",
-  "filename": "20240321_120000_report.pdf",
-  "content_type": "application/pdf",
-  "metadata": {
-    // Optional metadata
-  }
+    "conversation": "550e8400e29b41d4a716446655440000",
+    "filename": "20240321_120000_report.pdf",
+    "content_type": "application/pdf",
+    "metadata": {
+        // Optional metadata
+    }
 }
 ```
 
@@ -74,18 +75,18 @@ The `content_type` field determines the message format and required fields:
 
 ```json
 {
-  "id": "550e8400e29b41d4a716446655440000",
-  "conversation": "550e8400e29b41d4a716446655440000",
-  "content": "Hello world!",
-  "content_type": "text",
-  "channel": "api",
-  "type": "USER_INPUT",
-  "status": "received",
-  "metadata": {
-    // Additional metadata
-  },
-  "created_at": "2024-03-21T10:00:00Z",
-  "updated_at": "2024-03-21T10:00:00Z"
+    "id": "550e8400e29b41d4a716446655440000",
+    "conversation": "550e8400e29b41d4a716446655440000",
+    "content": "Hello world!",
+    "content_type": "text",
+    "channel": "api",
+    "type": "USER_INPUT",
+    "status": "received",
+    "metadata": {
+        // Additional metadata
+    },
+    "created_at": "2024-03-21T10:00:00Z",
+    "updated_at": "2024-03-21T10:00:00Z"
 }
 ```
 
@@ -102,11 +103,11 @@ The `content_type` field determines the message format and required fields:
 
 ### Status Codes
 
-- `200`: Message sent successfully
-- `400`: Validation error
-- `401`: Invalid or missing API key
-- `422`: Missing organization ID
-- `500`: Server error
+-   `200`: Message sent successfully
+-   `400`: Validation error
+-   `401`: Invalid or missing API key
+-   `422`: Missing organization ID
+-   `500`: Server error
 
 ### Example Request
 
@@ -121,25 +122,25 @@ curl 'https://beta-api.gaife.com/developer/api/messages' \
 
 1. **File Uploads**:
 
-   - Obtain pre-signed URL before uploading media
-   - Use appropriate content type headers
-   - Respect file size limits
+    - Obtain pre-signed URL before uploading media
+    - Use appropriate content type headers
+    - Respect file size limits
 
 2. **Message Processing**:
 
-   - Messages are processed asynchronously
-   - Check message status for delivery confirmation
-   - All timestamps are in UTC
+    - Messages are processed asynchronously
+    - Check message status for delivery confirmation
+    - All timestamps are in UTC
 
 3. **Metadata Usage**:
 
-   - Use metadata for custom tracking
-   - Metadata must be valid JSON
-   - Maximum metadata size: 4KB
+    - Use metadata for custom tracking
+    - Metadata must be valid JSON
+    - Maximum metadata size: 4KB
 
 4. **Rate Limits**:
-   - 100 messages per minute per organization
-   - Larger limits available for enterprise plans
+    - 100 messages per minute per organization
+    - Larger limits available for enterprise plans
 
 ## Media Handling
 
@@ -160,8 +161,8 @@ Content-Type: application/json
 
 ```json
 {
-  "file_name": "report.pdf",
-  "file_type": "application/pdf"
+    "file_name": "report.pdf",
+    "file_type": "application/pdf"
 }
 ```
 
@@ -169,10 +170,10 @@ Content-Type: application/json
 
 ```json
 {
-  // The URL to upload the file
-  "presigned_url": "https://s3.amazonaws.com/bucket/...",
-  // The file name will be used to send the message
-  "file_name": "20240321_120000_report.pdf"
+    // The URL to upload the file
+    "presigned_url": "https://s3.amazonaws.com/bucket/...",
+    // The file name will be used to send the message
+    "file_name": "20240321_120000_report.pdf"
 }
 ```
 
@@ -198,7 +199,8 @@ curl --location --request PUT "${PRESIGNED_URL}" \ # The URL received from Step 
     --data-binary "@/path/to/your/file"
 ```
 
-Note: Replace `${PRESIGNED_URL}` with the URL received from Step 1, and adjust the file path to your local file location.
+Note: Replace `${PRESIGNED_URL}` with the URL received from Step 1, and adjust the file path to your local file
+location.
 
 ### Step 3: Send Message
 
@@ -206,13 +208,13 @@ After successful upload, send the message:
 
 ```json
 {
-  "conversation": "550e8400e29b41d4a716446655440000",
-  // Use the file name received from Step 1
-  "filename": "20240321_120000_report.pdf",
-  "content_type": "application/pdf",
-  "metadata": {
-    // Optional metadata
-  }
+    "conversation": "550e8400e29b41d4a716446655440000",
+    // Use the file name received from Step 1
+    "filename": "20240321_120000_report.pdf",
+    "content_type": "application/pdf",
+    "metadata": {
+        // Optional metadata
+    }
 }
 ```
 
@@ -285,215 +287,213 @@ message_response = requests.post(
 
 1. **File Naming**:
 
-   - Uploaded files are automatically prefixed with timestamp
-   - Format: `YYYYMMDD_HHMMSS_original_filename`
+    - Uploaded files are automatically prefixed with timestamp
+    - Format: `YYYYMMDD_HHMMSS_original_filename`
 
 2. **Storage Organization**:
 
-   - Files are stored in type-specific folders
-   - Each organization has its own directory
-   - Maintains clean separation of different file types
+    - Files are stored in type-specific folders
+    - Each organization has its own directory
+    - Maintains clean separation of different file types
 
 3. **Limitations**:
 
-   - Text files are not supported for pre-signed URLs
-   - Pre-signed URLs expire after 15 minutes
-   - File type must match the declared content type
+    - Text files are not supported for pre-signed URLs
+    - Pre-signed URLs expire after 15 minutes
+    - File type must match the declared content type
 
 4. **Error Cases**:
-   - `422`: Missing organization ID
-   - `400`: Invalid file type or unsupported operation
-   - `500`: Server error during URL generation
+    - `422`: Missing organization ID
+    - `400`: Invalid file type or unsupported operation
+    - `500`: Server error during URL generation
 
 ## Message Metadata
 
 The `metadata` field in messages serves several critical functions:
 
-1. **File Storage Information**
+1.  **File Storage Information**
 
-   - Tracks file storage details for system generated files
-   - Used when system generates a file response
-   - System automatically processes the file:
-     - Extracts bucket and path information
-     - Transfers file to conversation media bucket
-     - Updates message with standardized S3 URI
-   - Supports both HTTPS and S3 protocol URLs
-   - File access requires proper authentication
-   - Example message metadata:
-     ```json
-     // Original metadata from AI Engine
-     {
-       "metadata": {
-         "from_s3": true,
-         "output": {
-           "s3_url": "https://bucket.s3.amazonaws.com/file.pdf",
-           "output_type": "application/pdf"
-         }
-       }
-     }
-     ```
+    -   Tracks file storage details for system generated files
+    -   Used when system generates a file response
+    -   System automatically processes the file:
+        -   Extracts bucket and path information
+        -   Transfers file to conversation media bucket
+        -   Updates message with standardized S3 URI
+    -   Supports both HTTPS and S3 protocol URLs
+    -   File access requires proper authentication
+    -   Example message metadata:
+        ```json
+        // Original metadata from AI Engine
+        {
+            "metadata": {
+                "from_s3": true,
+                "output": {
+                    "s3_url": "https://bucket.s3.amazonaws.com/file.pdf",
+                    "output_type": "application/pdf"
+                }
+            }
+        }
+        ```
 
-2. **Workflow Instance Status**
+2.  **Workflow Instance Status**
 
-   ```json
-   {
-     "metadata": {
-       "workflow_instance_id": "789",
-       "workflow_instance_status": "RUNNING"
-     }
-   }
-   ```
-
-   The metadata tracks workflow execution state through the `workflow_instance_status` field:
-
-   **Available Status Values**
-
-   | Status       | Description                                       |
-   | ------------ | ------------------------------------------------- |
-   | `RUNNING`    | Workflow is actively executing tasks              |
-   | `PAUSED`     | Workflow execution has been temporarily suspended |
-   | `COMPLETED`  | All tasks have successfully finished              |
-   | `FAILED`     | Workflow stopped due to an error                  |
-   | `CANCELLED`  | Workflow was manually cancelled by user           |
-   | `TERMINATED` | Workflow stopped due to system intervention       |
-
-   **Example Status Updates**
-   === "Initial workflow start"
-   `json
+    ```json
     {
         "metadata": {
             "workflow_instance_id": "789",
             "workflow_instance_status": "RUNNING"
         }
     }
-    `
+    ```
 
-   === "Workflow paused for user input"
-   `json
+    The metadata tracks workflow execution state through the `workflow_instance_status` field:
+
+    **Available Status Values**
+
+    | Status       | Description                                       |
+    | ------------ | ------------------------------------------------- |
+    | `RUNNING`    | Workflow is actively executing tasks              |
+    | `PAUSED`     | Workflow execution has been temporarily suspended |
+    | `COMPLETED`  | All tasks have successfully finished              |
+    | `FAILED`     | Workflow stopped due to an error                  |
+    | `CANCELLED`  | Workflow was manually cancelled by user           |
+    | `TERMINATED` | Workflow stopped due to system intervention       |
+
+    **Example Status Updates**
+
+    === "Initial workflow start"
+
+        ```json
+        {
+            "metadata": {
+                "workflow_instance_id": "789",
+                "workflow_instance_status": "RUNNING"
+            }
+        }
+        ```
+
+    === "Workflow paused for user input"
+
+        ```json
+        {
+            "metadata": {
+                "workflow_instance_id": "789",
+                "workflow_instance_status": "PAUSED"
+            }
+        }
+        ```
+
+    === "Workflow completion"
+
+        ```json
+        {
+            "metadata": {
+                "workflow_instance_id": "789",
+                "workflow_instance_status": "COMPLETED"
+            }
+        }
+        ```
+
+    **Status Transitions**
+
+    -   `RUNNING` → Any status
+    -   `PAUSED` → `RUNNING`, `CANCELLED`, `TERMINATED`
+    -   `COMPLETED` (Terminal state)
+    -   `FAILED` (Terminal state)
+    -   `CANCELLED` (Terminal state)
+    -   `TERMINATED` (Terminal state)
+
+    **Important Notes**
+
+    -   Status updates are real-time
+    -   Terminal states cannot transition to other states
+    -   Each status update includes timestamp information
+    -   Status changes may trigger notifications or webhook events
+    -   Historical status changes are preserved in workflow logs
+
+3.  **Ticket Integration**
+
+    ```json
+    {
+        "ticket_id": "123",
+        "task_instance_status": "EXECUTED"
+    }
+    ```
+
+    The metadata contains ticket information that automatically manages support ticket lifecycles:
+
+    **Status Management**
+
+    -   Ticket status is automatically updated based on task instance status:
+        ```bash
+        ERRORED, CANCELLED, REJECTED → CLOSED
+        EXECUTED → RESOLVED
+        ```
+    -   Updates are handled atomically to prevent race conditions
+    -   Status changes are tracked in ticket history
+
+    **Ticket Fields** Important ticket information tracked:
+
+    ```json
+    {
+        "workflow_instance_id": "789",
+        "failed_task_id": "456",
+        "exception_message": "Error details",
+        "workflow_name": "Document Processing",
+        "task_name": "PDF Generation",
+        "workflow_progress": 75.5,
+        "conversation_id": "conv_123"
+    }
+    ```
+
+    **Example Metadata Usage**
+
+    ```json
     {
         "metadata": {
+            "ticket_id": "123",
+            "task_instance_status": "EXECUTED",
             "workflow_instance_id": "789",
-            "workflow_instance_status": "PAUSED"
+            "task_name": "Document Processing",
+            "workflow_progress": 85.5
         }
     }
-    `
+    ```
 
-   === "Workflow completion"
-   `json
-    {
-        "metadata": {
-            "workflow_instance_id": "789",
-            "workflow_instance_status": "COMPLETED"
-        }
-    }
-    `
+    **Notification System** When tickets are created or updated:
 
-   **Status Transitions**
+    -   Assignees receive email notifications
+    -   Notifications include:
+        -   Ticket ID
+        -   Task name and description
+        -   Workflow name
+        -   Exception details (if any)
+        -   Assignment details
 
-   - `RUNNING` → Any status
-   - `PAUSED` → `RUNNING`, `CANCELLED`, `TERMINATED`
-   - `COMPLETED` (Terminal state)
-   - `FAILED` (Terminal state)
-   - `CANCELLED` (Terminal state)
-   - `TERMINATED` (Terminal state)
+    **Important Notes**
 
-   **Important Notes**
-
-   - Status updates are real-time
-   - Terminal states cannot transition to other states
-   - Each status update includes timestamp information
-   - Status changes may trigger notifications or webhook events
-   - Historical status changes are preserved in workflow logs
-
-3. **Ticket Integration**
-
-   ```json
-   {
-     "ticket_id": "123",
-     "task_instance_status": "EXECUTED"
-   }
-   ```
-
-   The metadata contains ticket information that automatically manages support ticket lifecycles:
-
-   **Status Management**
-
-   - Ticket status is automatically updated based on task instance status:
-     ```bash
-     ERRORED, CANCELLED, REJECTED → CLOSED
-     EXECUTED → RESOLVED
-     ```
-   - Updates are handled atomically to prevent race conditions
-   - Status changes are tracked in ticket history
-
-   **Ticket Fields**
-   Important ticket information tracked:
-
-   ```json
-   {
-     "workflow_instance_id": "789",
-     "failed_task_id": "456",
-     "exception_message": "Error details",
-     "workflow_name": "Document Processing",
-     "task_name": "PDF Generation",
-     "workflow_progress": 75.5,
-     "conversation_id": "conv_123"
-   }
-   ```
-
-   **Example Metadata Usage**
-
-   ```json
-   {
-     "metadata": {
-       "ticket_id": "123",
-       "task_instance_status": "EXECUTED",
-       "workflow_instance_id": "789",
-       "task_name": "Document Processing",
-       "workflow_progress": 85.5
-     }
-   }
-   ```
-
-   **Notification System**
-   When tickets are created or updated:
-
-   - Assignees receive email notifications
-   - Notifications include:
-     - Ticket ID
-     - Task name and description
-     - Workflow name
-     - Exception details (if any)
-     - Assignment details
-
-   **Important Notes**
-
-   - Ticket updates are processed atomically using database transactions
-   - Missing ticket IDs are safely ignored
-   - Status updates are immediate and automatic
-   - All ticket activities are logged for audit purposes
+    -   Ticket updates are processed atomically using database transactions
+    -   Missing ticket IDs are safely ignored
+    -   Status updates are immediate and automatic
+    -   All ticket activities are logged for audit purposes
 
 ### Example Message with Complex Metadata
 
 ```json
 {
-  "conversation": "550e8400e29b41d4a716446655440000",
-  "content": "Processing your document...",
-  "content_type": "text",
-  "metadata": {
-    "from_s3": true,
-    "output": {
-      "s3_url": "s3://bucket/org123/documents/20240321_120000_report.pdf",
-      "output_type": "application/pdf"
-    },
-    "workflow_instance_id": "789",
-    "workflow_instance_status": "RUNNING",
-    "ticket_id": "244",
-    "task_instance_status": "EXECUTED"
-  }
+    "conversation": "550e8400e29b41d4a716446655440000",
+    "content": "Processing your document...",
+    "content_type": "text",
+    "metadata": {
+        "from_s3": true,
+        "output": {
+            "s3_url": "s3://bucket/org123/documents/20240321_120000_report.pdf",
+            "output_type": "application/pdf"
+        },
+        "workflow_instance_id": "789",
+        "workflow_instance_status": "RUNNING",
+        "ticket_id": "244",
+        "task_instance_status": "EXECUTED"
+    }
 }
 ```
-
-## Next Steps
-
-- [Webhook/Callback Integration](./webhooks.md)

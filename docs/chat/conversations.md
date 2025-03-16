@@ -1,13 +1,14 @@
 # Conversations
 
-Conversations represent chat sessions in the system. Each conversation is associated with a workflow and can contain multiple messages.
+Conversations represent chat sessions in the system. Each conversation is associated with a workflow and can contain
+multiple messages.
 
 ## Create a Conversation
 
 Create a new conversation instance.
 
-- **Endpoint**: `POST /conversations`
-- **Authentication**: API Key Required
+-   **Endpoint**: `POST /conversations`
+-   **Authentication**: API Key Required
 
 ### Headers
 
@@ -22,32 +23,33 @@ The `usecase` field determines the conversation's purpose and behavior:
 
 1. **DEFAULT** (`"usecase": "DEFAULT"`)
 
-   - Standard conversation, chat with the GAIFE system
-   - Used for general messaging purposes
+    - Standard conversation, chat with the GAIFE system
+    - Used for general messaging purposes
 
 2. **WORKFLOW_EXECUTION** (`"usecase": "WORKFLOW_EXECUTION"`)
-   - Used when executing an existing workflow
-   - Automatically sets metadata with `workflow_id` from **config**
-   - Enables workflow-specific message processing
+    - Used when executing an existing workflow
+    - Automatically sets metadata with `workflow_id` from **config**
+    - Enables workflow-specific message processing
 
 !!! info
-Optionally, configure a `callback_url` in `config` to receive a [webhook/callback](./webhooks.md) on every [message of conversation](./message.md).
+
+    Optionally, configure a `callback_url` in `config` to receive a [webhook/callback](./webhooks.md) on every [message of conversation](./message.md).
 
 ### Request Body
 
 ```json
 {
-  "channel": "API",
-  "usecase": "WORKFLOW_EXECUTION", // One of: DEFAULT, WORKFLOW_EXECUTION
-  "config": {
-    "workflow_id": "string", // Required, the ID of the workflow to execute
-    "callback_url": "string" // To receive a webhook on every message of conversation
-    // Additional configuration
-  },
-  "metadata": {
-    // Optional custom data
-  },
-  "team_id": "integer" // Optional
+    "channel": "API",
+    "usecase": "WORKFLOW_EXECUTION", // One of: DEFAULT, WORKFLOW_EXECUTION
+    "config": {
+        "workflow_id": "string", // Required, the ID of the workflow to execute
+        "callback_url": "string" // To receive a webhook on every message of conversation
+        // Additional configuration
+    },
+    "metadata": {
+        // Optional custom data
+    },
+    "team_id": "integer" // Optional
 }
 ```
 
@@ -55,14 +57,15 @@ Optionally, configure a `callback_url` in `config` to receive a [webhook/callbac
 
 ```json
 {
-  "id": "string" // conversation ID without hyphens
+    "id": "string" // conversation ID without hyphens
 }
 ```
 
 ### Example Usecases Request Body
 
 === "Workflow Execution"
-`json
+
+    ```json
     {
         "channel": "API",
         "usecase": "WORKFLOW_EXECUTION",
@@ -71,10 +74,11 @@ Optionally, configure a `callback_url` in `config` to receive a [webhook/callbac
             "callback_url": "https://example.com/webhook"
         }
     }
-    `
+    ```
 
 === "Default"
-`json
+
+    ```json
     {
         "channel": "API",
         "usecase": "DEFAULT",
@@ -82,15 +86,15 @@ Optionally, configure a `callback_url` in `config` to receive a [webhook/callbac
             "callback_url": "https://example.com/webhook"
         }
     }
-    `
+    ```
 
 ### Notes
 
-- For `WORKFLOW_EXECUTION`, the metadata will automatically include the workflow_id from config
-- The `DEFAULT` usecase provides the most flexibility for custom implementations
-- All usecases support custom metadata for additional context
-- The `channel` field is used to specify the communication channel, currently only `API` is supported
-- To receive a webhook on every message of conversation, configure a `callback_url` in `config`
+-   For `WORKFLOW_EXECUTION`, the metadata will automatically include the workflow_id from config
+-   The `DEFAULT` usecase provides the most flexibility for custom implementations
+-   All usecases support custom metadata for additional context
+-   The `channel` field is used to specify the communication channel, currently only `API` is supported
+-   To receive a webhook on every message of conversation, configure a `callback_url` in `config`
 
 ### Example Request
 
@@ -112,27 +116,27 @@ curl 'https://beta-api.gaife.com/developer/api/conversations' \
 
 ```json
 {
-  "id": "550e8400e29b41d4a716446655440000"
+    "id": "550e8400e29b41d4a716446655440000"
 }
 ```
 
 ### Status Codes
 
-- `201`: Conversation created successfully
-- `400`: Invalid request data
-- `401`: Invalid or missing API key
-- `500`: Server error
+-   `201`: Conversation created successfully
+-   `400`: Invalid request data
+-   `401`: Invalid or missing API key
+-   `500`: Server error
 
 ## **Get Conversation Messages**
 
 Retrieve all messages in a conversation.
 
-- **Endpoint**: `GET /conversations/{conversation_id}/messages`
-- **Authentication**: Required
+-   **Endpoint**: `GET /conversations/{conversation_id}/messages`
+-   **Authentication**: Required
 
 ### Path Parameters
 
-- `conversation_id`: The ID of the conversation
+-   `conversation_id`: The ID of the conversation
 
 ### Example Request
 
@@ -144,61 +148,56 @@ curl 'https://beta-api.gaife.com/developer/api/conversations/550e8400e29b41d4a71
 
 ### Response
 
-- Messages are returned in chronological order, from newest to oldest.
+-   Messages are returned in chronological order, from newest to oldest.
 
 ```json
 [
-  {
-    "id": "string",
-    "conversation_id": "string",
-    "content": "string",
-    "content_type": "TEXT", // One of: TEXT, IMAGE, VIDEO, AUDIO, etc.
-    "filename": "string", // Optional, present for media messages
-    "type": "USER_INPUT", // Message type
-    "channel": "string", // Communication channel
-    "status": "RECEIVED", // Message status
-    "metadata": {
-      "key": "value" // Optional custom metadata
-    },
-    "created_by": "string",
-    "created_at": "datetime",
-    "updated_at": "datetime"
-  }
+    {
+        "id": "string",
+        "conversation_id": "string",
+        "content": "string",
+        "content_type": "TEXT", // One of: TEXT, IMAGE, VIDEO, AUDIO, etc.
+        "filename": "string", // Optional, present for media messages
+        "type": "USER_INPUT", // Message type
+        "channel": "string", // Communication channel
+        "status": "RECEIVED", // Message status
+        "metadata": {
+            "key": "value" // Optional custom metadata
+        },
+        "created_by": "string",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
 ]
 ```
 
 ### Status Codes
 
-- `200`: Success
-- `404`: Conversation not found
-- `500`: Server error
+-   `200`: Success
+-   `404`: Conversation not found
+-   `500`: Server error
 
 ### Notes
 
 1. **Content Types**:
 
-   - `TEXT`: Regular text messages
-   - `IMAGE`: Image files
-   - `VIDEO`: Video files
-   - `AUDIO`: Audio files
+    - `TEXT`: Regular text messages
+    - `IMAGE`: Image files
+    - `VIDEO`: Video files
+    - `AUDIO`: Audio files
 
 2. **Message Types**:
 
-   - `USER_INPUT`: Messages from users
-   - Other types as per your MessageType choices
+    - `USER_INPUT`: Messages from users
+    - Other types as per your MessageType choices
 
 3. **Message Status**:
 
-   - `RECEIVED`: Message has been received
-   - Other statuses as per your MessageStatus choices
+    - `RECEIVED`: Message has been received
+    - Other statuses as per your MessageStatus choices
 
 4. **Response Fields**:
-   - `id`: Unique message identifier
-   - `content`: Message content/text
-   - `filename`: Present only for media messages
-   - `metadata`: Optional JSON object for additional data
-
-## Next Steps
-
-- [Handle Messages](./message.md)
-- [Webhook/Callback Integration](./webhooks.md)
+    - `id`: Unique message identifier
+    - `content`: Message content/text
+    - `filename`: Present only for media messages
+    - `metadata`: Optional JSON object for additional data
