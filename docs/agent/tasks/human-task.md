@@ -20,9 +20,9 @@ These tasks pause the workflow execution until human input is received.
         "instructions": "Based on the given message, categorize the message into APPROVED or REJECTED or UNDECIDED",
         "dependencies": [],
         "error_policy": "RAISE",
-        "assignment_type": "USER",  // Required: USER or TEAM
-        "assignee_id": "user_id",   // Required: User ID or Team ID based on assignment_type
-        "assignment_logic": "Round_Robin"  // Required only when assignment_type is TEAM
+        "assignment_type": "USER", // Required: USER or TEAM
+        "assignee_id": "user_id", // Required: User ID or Team ID based on assignment_type
+        "assignment_logic": "Round_Robin" // Required only when assignment_type is TEAM
     }
 }
 ```
@@ -55,50 +55,54 @@ Example:
 
 ## Assignment Rules (Required)
 
-When creating a Human Task, you **must** configure an assignment rule to specify who will be responsible for completing the task. Without a valid assignment rule, you will not be able to create or update the workflow.
+When creating a Human Task, you **must** configure an assignment rule to specify who will be responsible for completing
+the task. Without a valid assignment rule, you will not be able to create or update the workflow.
 
 ### Assignment Configuration
 
 ```json
 {
     "rule_type": "Human Feedback",
-    "assignment_type": "USER|TEAM",  // Required: Must be either USER or TEAM
-    "assignee_id": "id",            // Required: User ID or Team ID based on assignment_type
-    "assignment_logic": "Round_Robin|LRU"  // Required only when assignment_type is TEAM
+    "assignment_type": "USER|TEAM", // Required: Must be either USER or TEAM
+    "assignee_id": "id", // Required: User ID or Team ID based on assignment_type
+    "assignment_logic": "Round_Robin|LRU" // Required only when assignment_type is TEAM
 }
 ```
 
 ### User Assignment
 
-When assigning to an individual user, select "USER" as the assignment type and choose from the dropdown list of users in your organization.
+When assigning to an individual user, select "USER" as the assignment type and choose from the dropdown list of users in
+your organization.
 
 ```json
 {
     "rule_type": "Human Feedback",
     "assignment_type": "USER",
-    "assignee_id": "user_id"  // Selected from organization user list
+    "assignee_id": "user_id" // Selected from organization user list
 }
 ```
 
 ### Team Assignment
 
-When assigning to a team, select "TEAM" as the assignment type, choose a team from the dropdown list, and specify an assignment logic.
+When assigning to a team, select "TEAM" as the assignment type, choose a team from the dropdown list, and specify an
+assignment logic.
 
 ```json
 {
     "rule_type": "Human Feedback",
     "assignment_type": "TEAM",
-    "assignee_id": "team_id",  // Selected from organization team list
-    "assignment_logic": "Round_Robin"  // Must specify either Round_Robin or LRU
+    "assignee_id": "team_id", // Selected from organization team list
+    "assignment_logic": "Round_Robin" // Must specify either Round_Robin or LRU
 }
 ```
 
 #### Assignment Logic Options
 
-- **Round_Robin**: Distributes tasks evenly among team members in a circular sequence
-- **LRU (Least Recently Used)**: Assigns task to the team member who has not been assigned a task for the longest time
+-   **Round_Robin**: Distributes tasks evenly among team members in a circular sequence
+-   **LRU (Least Recently Used)**: Assigns task to the team member who has not been assigned a task for the longest time
 
-> **Important Note**: If assignment rule conditions are not properly configured, you will not be able to create or update the workflow. All required fields must be completed with valid values.
+> **Important Note**: If assignment rule conditions are not properly configured, you will not be able to create or
+> update the workflow. All required fields must be completed with valid values.
 
 ## Common Use Cases
 
@@ -282,13 +286,13 @@ Human tasks can have three possible responses:
 
 ## Common Issues and Solutions
 
-| Issue                       | Solution                                      |
-| --------------------------- | --------------------------------------------- |
-| Missed Deadlines            | Set up reminders and escalations              |
-| Unclear Instructions        | Review and clarify task requirements          |
-| Assignment Conflicts        | Configure backup assignments                  |
-| Response Delays             | Implement notification system                 |
-| Invalid Assignment Rules    | Ensure all required fields are properly filled |
+| Issue                    | Solution                                       |
+| ------------------------ | ---------------------------------------------- |
+| Missed Deadlines         | Set up reminders and escalations               |
+| Unclear Instructions     | Review and clarify task requirements           |
+| Assignment Conflicts     | Configure backup assignments                   |
+| Response Delays          | Implement notification system                  |
+| Invalid Assignment Rules | Ensure all required fields are properly filled |
 
 ## Related Documentation
 
