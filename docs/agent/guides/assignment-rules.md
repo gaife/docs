@@ -10,7 +10,7 @@ Assignment rules determine:
 -   Who can handle tasks
 -   How tasks are distributed
 -   What happens during exceptions
--   When human feedback is needed
+-   When alerts are needed for scheduled workflows
 
 ## Rule Types
 
@@ -31,20 +31,22 @@ Assignment rules determine:
     - Special case processing
     - Technical support tasks
 
-    ### Human Feedback Rules
-    These rules are for tasks that need human review or approval.
+    ### Human Scheduler Alert Rules
+    These rules are used for scheduler job workflows to notify users on alerts when workflows run automatically at scheduled intervals.
 
     **How to Configure:**
 
-    1. Select "Human Feedback" as the rule type
+    1. Select "Human Scheduler Alert" as the rule type
     2. Choose assignee (user or team)
     3. Set distribution method for teams
 
     **When to Use:**
 
-    - Document approvals
-    - Content review
-    - Quality checks
+    - Automated workflow notifications
+    - Scheduled job monitoring
+    - Periodic execution alerts
+
+    > **Important**: If you enable Scheduler for your workflow, you must provide an assignment for Human Scheduler Alert, otherwise workflow creation/update will not be permitted.
 
 === "Developer Reference"
 
@@ -57,10 +59,10 @@ Assignment rules determine:
     }
     ```
 
-    ### Human Feedback Rules
+    ### Human Scheduler Alert Rules
     ```json
     {
-      "rule_type": "Human Feedback",
+      "rule_type": "Human Scheduler Alert",
       "assignment_type": "Team",
       "assignee_id": "team_id",
       "assignment_logic": "Round Robin"
@@ -136,6 +138,11 @@ Assignment rules determine:
     - Consider setting backup assignees
     - Check user availability
 
+    ### For Scheduled Workflows
+    - Must provide Human Scheduler Alert assignment when Scheduler is enabled
+    - Select appropriate notification recipients
+    - Configure alert frequency
+
 === "Developer Reference"
 
     ### Validation Schema
@@ -144,7 +151,7 @@ Assignment rules determine:
       "required": ["rule_type", "assignment_type", "assignee_id"],
       "properties": {
         "rule_type": {
-          "enum": ["Exception", "Human Feedback"]
+          "enum": ["Exception", "Human Scheduler Alert"]
         },
         "assignment_type": {
           "enum": ["User", "Team"]
@@ -160,10 +167,11 @@ Assignment rules determine:
 
 === "User Guide"
 
-    ### Document Review Process
-    1. Create Human Feedback rule
-    2. Assign to review team
+    ### Scheduled Alert Notification
+    1. Create Human Scheduler Alert rule
+    2. Assign to operations team
     3. Enable Round Robin distribution
+    4. Configure with workflow scheduler
 
     ### Error Handling
     1. Create Exception rule
@@ -172,12 +180,12 @@ Assignment rules determine:
 
 === "Developer Reference"
 
-    ### Document Review Configuration
+    ### Scheduler Alert Configuration
     ```json
     {
-      "rule_type": "Human Feedback",
+      "rule_type": "Human Scheduler Alert",
       "assignment_type": "Team",
-      "assignee_id": "reviewers_team",
+      "assignee_id": "operations_team",
       "assignment_logic": "Round Robin"
     }
     ```
@@ -205,6 +213,11 @@ Assignment rules determine:
         - Consider team availability
         - Plan for holidays/time off
 
+    3. **Scheduler Configurations**
+        - Always configure Human Scheduler Alert when using scheduled workflows
+        - Assign to active team members who can respond to alerts
+        - Set appropriate notification channels
+
 === "Developer Reference"
 
     1. **Code Organization**
@@ -223,3 +236,4 @@ Assignment rules determine:
        - Verify IDs before saving
        - Check permissions
        - Test rule combinations
+       - Validate scheduler configuration with alert assignments
