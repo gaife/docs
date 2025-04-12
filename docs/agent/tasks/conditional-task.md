@@ -310,15 +310,23 @@ The `then_block` field specifies which task to execute if all conditions in the 
 ```mermaid
 graph TD
     A[Previous Task] --> B[Conditional Task]
-    B -- "Rule 1 Matches (All conditions met)" --> C[Task 1]
-    B -- "Rule 2 Matches (All conditions met)" --> D[Task 2]
+    B -- "Rule 1 Matches" --> C[Task 1]
+    B -- "Rule 2 Matches" --> D[Task 2]
     B -- "No Rules Match" --> E[END]
 
-    style B fill:#ffcccc,stroke:#ff6666
-    style C fill:#ccffcc,stroke:#66ff66
-    style D fill:#ccffcc,stroke:#66ff66
-    style E fill:#ccccff,stroke:#6666ff
+    style A fill:#d4e6ff,stroke:#0066cc,color:#000000
+    style B fill:#ffd6d6,stroke:#cc0000,color:#000000
+    style C fill:#d6ffda,stroke:#009900,color:#000000
+    style D fill:#d6ffda,stroke:#009900,color:#000000
+    style E fill:#e0d6ff,stroke:#6600cc,color:#000000
 ```
+
+### Flow Execution Logic
+
+-   Rules are evaluated in sequential order (top to bottom)
+-   The first rule with all conditions satisfied determines the execution path
+-   If multiple rules could match, only the first matching rule is executed
+-   If no rules match, the workflow proceeds to END unless a default path is configured
 
 ## Error Policies
 
