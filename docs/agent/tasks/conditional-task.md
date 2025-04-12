@@ -2,7 +2,9 @@
 
 ## Overview
 
-Conditional Tasks enable workflow branching based on defined rules and conditions. Each rule evaluates output parameters from previous tasks, allowing for dynamic workflow execution paths. This feature lets you create intelligent workflows that respond to data variations and task outcomes.
+Conditional Tasks enable workflow branching based on defined rules and conditions. Each rule evaluates output parameters
+from previous tasks, allowing for dynamic workflow execution paths. This feature lets you create intelligent workflows
+that respond to data variations and task outcomes.
 
 ## Visual Example
 
@@ -57,12 +59,12 @@ Conditional Tasks enable workflow branching based on defined rules and condition
 
 ## Required Fields
 
-| Field        | Type   | Description                             | Required |
-| ------------ | ------ | --------------------------------------- | -------- |
-| name         | string | Task identifier                         | Yes      |
-| rules        | array  | Array of condition rules                | Yes      |
-| dependencies | array  | Task dependencies                       | No       |
-| error_policy | string | Error handling strategy                 | No       |
+| Field        | Type   | Description              | Required |
+| ------------ | ------ | ------------------------ | -------- |
+| name         | string | Task identifier          | Yes      |
+| rules        | array  | Array of condition rules | Yes      |
+| dependencies | array  | Task dependencies        | No       |
+| error_policy | string | Error handling strategy  | No       |
 
 ## Rules Configuration
 
@@ -83,8 +85,8 @@ Each conditional task must have one or more rules. Rules are evaluated in the or
 
 Each rule contains:
 
-- **conditions**: Array of conditions that must ALL be satisfied (AND operation)
-- **then_block**: The task to execute if all conditions are met (defaults to "END" if not specified)
+-   **conditions**: Array of conditions that must ALL be satisfied (AND operation)
+-   **then_block**: The task to execute if all conditions are met (defaults to "END" if not specified)
 
 ## Condition Configuration
 
@@ -104,13 +106,13 @@ Each rule contains:
 
 ### Condition Fields
 
-| Field          | Type   | Description                                          | Required |
-| -------------- | ------ | ---------------------------------------------------- | -------- |
-| task           | string | Source task (must be a dependency)                   | Yes      |
-| parameter      | string | Output parameter from the source task                | Yes      |
-| parameter_type | enum   | Data type of the parameter                           | Yes      |
-| operator       | enum   | Comparison operator                                  | Yes      |
-| value          | any    | Value to compare against                             | Yes*     |
+| Field          | Type   | Description                           | Required |
+| -------------- | ------ | ------------------------------------- | -------- |
+| task           | string | Source task (must be a dependency)    | Yes      |
+| parameter      | string | Output parameter from the source task | Yes      |
+| parameter_type | enum   | Data type of the parameter            | Yes      |
+| operator       | enum   | Comparison operator                   | Yes      |
+| value          | any    | Value to compare against              | Yes\*    |
 
 \* Not required for operators like IS_NULL, IS_NOT_NULL, IS_EMPTY, IS_NOT_EMPTY
 
@@ -118,15 +120,15 @@ Each rule contains:
 
 The following parameter types are supported:
 
-| Type     | Description                           | Example Values                   |
-| -------- | ------------------------------------- | -------------------------------- |
-| STRING   | Text values                           | "approval", "high", "rejected"   |
-| INTEGER  | Whole numbers                         | 1, 42, -10                       |
-| FLOAT    | Decimal numbers                       | 0.5, 3.14, -2.5                  |
-| BOOLEAN  | True/false values                     | true, false                      |
-| DATETIME | Date and time values                  | "2024-03-15 14:30:00"           |
-| ARRAY    | Lists of values                       | [1, 2, 3], ["red", "green"]     |
-| ENUM     | Predefined set of values              | "APPROVED", "REJECTED"           |
+| Type     | Description              | Example Values                 |
+| -------- | ------------------------ | ------------------------------ |
+| STRING   | Text values              | "approval", "high", "rejected" |
+| INTEGER  | Whole numbers            | 1, 42, -10                     |
+| FLOAT    | Decimal numbers          | 0.5, 3.14, -2.5                |
+| BOOLEAN  | True/false values        | true, false                    |
+| DATETIME | Date and time values     | "2024-03-15 14:30:00"          |
+| ARRAY    | Lists of values          | [1, 2, 3], ["red", "green"]    |
+| ENUM     | Predefined set of values | "APPROVED", "REJECTED"         |
 
 ### Available Operators
 
@@ -134,52 +136,52 @@ The available operators depend on the data type of the selected parameter:
 
 #### String Operators
 
-- `EQUAL`: Exact match
-- `NOT_EQUAL`: Not an exact match
-- `CONTAINS`: String contains value
-- `STARTS_WITH`: String starts with value
-- `ENDS_WITH`: String ends with value
-- `IS_NULL`: Value is null
-- `IS_NOT_NULL`: Value is not null
+-   `EQUAL`: Exact match
+-   `NOT_EQUAL`: Not an exact match
+-   `CONTAINS`: String contains value
+-   `STARTS_WITH`: String starts with value
+-   `ENDS_WITH`: String ends with value
+-   `IS_NULL`: Value is null
+-   `IS_NOT_NULL`: Value is not null
 
 #### Numeric Operators (INTEGER, FLOAT)
 
-- `EQUAL`: Equal to
-- `NOT_EQUAL`: Not equal to
-- `GREATER_THAN`: Greater than
-- `LESS_THAN`: Less than
-- `GREATER_THAN_OR_EQUAL`: Greater than or equal to
-- `LESS_THAN_OR_EQUAL`: Less than or equal to
-- `IS_NULL`: Value is null
-- `IS_NOT_NULL`: Value is not null
+-   `EQUAL`: Equal to
+-   `NOT_EQUAL`: Not equal to
+-   `GREATER_THAN`: Greater than
+-   `LESS_THAN`: Less than
+-   `GREATER_THAN_OR_EQUAL`: Greater than or equal to
+-   `LESS_THAN_OR_EQUAL`: Less than or equal to
+-   `IS_NULL`: Value is null
+-   `IS_NOT_NULL`: Value is not null
 
 #### Boolean Operators
 
-- `EQUAL`: Equal to (true/false)
-- `NOT_EQUAL`: Not equal to (true/false)
-- `IS_NULL`: Value is null
-- `IS_NOT_NULL`: Value is not null
+-   `EQUAL`: Equal to (true/false)
+-   `NOT_EQUAL`: Not equal to (true/false)
+-   `IS_NULL`: Value is null
+-   `IS_NOT_NULL`: Value is not null
 
 #### DateTime Operators
 
-- `EQUAL`: Equal to
-- `NOT_EQUAL`: Not equal to
-- `GREATER_THAN`: Later than
-- `LESS_THAN`: Earlier than
-- `GREATER_THAN_OR_EQUAL`: Later than or equal to
-- `LESS_THAN_OR_EQUAL`: Earlier than or equal to
-- `IS_NULL`: Value is null
-- `IS_NOT_NULL`: Value is not null
+-   `EQUAL`: Equal to
+-   `NOT_EQUAL`: Not equal to
+-   `GREATER_THAN`: Later than
+-   `LESS_THAN`: Earlier than
+-   `GREATER_THAN_OR_EQUAL`: Later than or equal to
+-   `LESS_THAN_OR_EQUAL`: Earlier than or equal to
+-   `IS_NULL`: Value is null
+-   `IS_NOT_NULL`: Value is not null
 
 #### Array Operators
 
-- `IS_EMPTY`: Array has no elements
-- `IS_NOT_EMPTY`: Array has at least one element
+-   `IS_EMPTY`: Array has no elements
+-   `IS_NOT_EMPTY`: Array has at least one element
 
 #### Enum Operators
 
-- `EQUAL`: Exact match
-- `NOT_EQUAL`: Not an exact match
+-   `EQUAL`: Exact match
+-   `NOT_EQUAL`: Not an exact match
 
 ## Then Block Configuration
 
@@ -191,8 +193,8 @@ The `then_block` field specifies which task to execute if all conditions in the 
 }
 ```
 
-- If no `then_block` is specified, or if it is set to "END", the workflow will terminate
-- Only tasks that have been connected to the conditional task in the workflow editor will appear in the dropdown
+-   If no `then_block` is specified, or if it is set to "END", the workflow will terminate
+-   Only tasks that have been connected to the conditional task in the workflow editor will appear in the dropdown
 
 ## Common Use Cases
 
@@ -322,11 +324,11 @@ graph TD
 
 The `error_policy` field defines how errors are handled during rule evaluation:
 
-| Policy | Description                                           |
-| ------ | ----------------------------------------------------- |
-| RAISE  | Stop workflow execution and raise an error (default)  |
-| RETRY  | Retry the condition evaluation after a delay          |
-| SKIP   | Skip the failing condition and continue evaluation    |
+| Policy | Description                                          |
+| ------ | ---------------------------------------------------- |
+| RAISE  | Stop workflow execution and raise an error (default) |
+| RETRY  | Retry the condition evaluation after a delay         |
+| SKIP   | Skip the failing condition and continue evaluation   |
 
 ```json
 {
@@ -342,62 +344,62 @@ The `error_policy` field defines how errors are handled during rule evaluation:
 
 ✅ **Do**:
 
-- Order rules from most specific to most general
-- Group related conditions
-- Use descriptive names for tasks and parameters
-- Test rule evaluation with sample data
+-   Order rules from most specific to most general
+-   Group related conditions
+-   Use descriptive names for tasks and parameters
+-   Test rule evaluation with sample data
 
 ❌ **Don't**:
 
-- Create overlapping rules without clear precedence
-- Use complex nested conditions when simpler rules would work
-- Add unnecessary conditions
-- Create circular dependencies
+-   Create overlapping rules without clear precedence
+-   Use complex nested conditions when simpler rules would work
+-   Add unnecessary conditions
+-   Create circular dependencies
 
 ### 2. Condition Design
 
 ✅ **Do**:
 
-- Use appropriate operators for each data type
-- Validate input values
-- Consider edge cases
-- Keep conditions simple and clear
+-   Use appropriate operators for each data type
+-   Validate input values
+-   Consider edge cases
+-   Keep conditions simple and clear
 
 ❌ **Don't**:
 
-- Mix data types in comparisons
-- Use hardcoded values that may change
-- Create impossible conditions
-- Overcomplicate conditions
+-   Mix data types in comparisons
+-   Use hardcoded values that may change
+-   Create impossible conditions
+-   Overcomplicate conditions
 
 ### 3. Workflow Integration
 
 ✅ **Do**:
 
-- Ensure all referenced tasks exist in the workflow
-- Verify parameter names and types
-- Use clear task names for easy reference
-- Document rule logic for other users
+-   Ensure all referenced tasks exist in the workflow
+-   Verify parameter names and types
+-   Use clear task names for easy reference
+-   Document rule logic for other users
 
 ❌ **Don't**:
 
-- Reference tasks outside the workflow
-- Use parameters that may not exist
-- Create dead-end paths
-- Assume parameters will always have values
+-   Reference tasks outside the workflow
+-   Use parameters that may not exist
+-   Create dead-end paths
+-   Assume parameters will always have values
 
 ## Common Issues and Solutions
 
-| Issue                      | Solution                                            |
-| -------------------------- | --------------------------------------------------- |
-| Rules Never Match          | Check condition values and operators                |
-| Wrong Branch Selected      | Review rule order and specificity                   |
-| Missing Parameters         | Verify task dependencies and output structure       |
-| Type Errors                | Ensure parameter values match expected data types   |
-| Workflow Dead Ends         | Connect all possible branches to appropriate tasks  |
-| Parameter Changed          | Update conditions if output parameter names change  |
-| No Next Node Options       | Connect edges to destination nodes in the workflow  |
+| Issue                 | Solution                                           |
+| --------------------- | -------------------------------------------------- |
+| Rules Never Match     | Check condition values and operators               |
+| Wrong Branch Selected | Review rule order and specificity                  |
+| Missing Parameters    | Verify task dependencies and output structure      |
+| Type Errors           | Ensure parameter values match expected data types  |
+| Workflow Dead Ends    | Connect all possible branches to appropriate tasks |
+| Parameter Changed     | Update conditions if output parameter names change |
+| No Next Node Options  | Connect edges to destination nodes in the workflow |
 
 ## Related Documentation
 
-- [Assignment Rules](../guides/assignment-rules.md)
+-   [Assignment Rules](../guides/assignment-rules.md)
