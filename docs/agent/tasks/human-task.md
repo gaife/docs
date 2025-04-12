@@ -40,10 +40,10 @@ These tasks pause the workflow execution until human input is received.
 
 Human tasks require clear instructions for the assigned user or team. Instructions should:
 
--   Be specific and clear
--   Define expected actions
--   Provide decision criteria
--   Include any relevant context
+- Be specific and clear
+- Define expected actions
+- Provide decision criteria
+- Include any relevant context
 
 Example:
 
@@ -98,8 +98,8 @@ assignment logic.
 
 #### Assignment Logic Options
 
--   **Round_Robin**: Distributes tasks evenly among team members in a circular sequence
--   **LRU (Least Recently Used)**: Assigns task to the team member who has not been assigned a task for the longest time
+- **Round_Robin**: Distributes tasks evenly among team members in a circular sequence
+- **LRU (Least Recently Used)**: Assigns task to the team member who has not been assigned a task for the longest time
 
 > **Important Note**: If assignment rule conditions are not properly configured, you will not be able to create or
 > update the workflow. All required fields must be completed with valid values.
@@ -160,50 +160,50 @@ Human tasks can have three possible responses:
 
 ✅ **Do**:
 
--   Write clear, concise instructions
--   Specify decision criteria
--   Include relevant context
--   Define expected outcomes
+- Write clear, concise instructions
+- Specify decision criteria
+- Include relevant context
+- Define expected outcomes
 
 ❌ **Don't**:
 
--   Use technical jargon
--   Write vague instructions
--   Omit important details
--   Assume knowledge
+- Use technical jargon
+- Write vague instructions
+- Omit important details
+- Assume knowledge
 
 ### 2. Assignment Rules
 
 ✅ **Do**:
 
--   Set appropriate assignees
--   Configure backup assignments
--   Use team assignments for shared tasks
--   Set reasonable deadlines
--   Verify all required fields are completed
+- Set appropriate assignees
+- Configure backup assignments
+- Use team assignments for shared tasks
+- Set reasonable deadlines
+- Verify all required fields are completed
 
 ❌ **Don't**:
 
--   Assign to inactive users
--   Skip backup assignments
--   Ignore time zones
--   Use overly complex rules
--   Leave assignment rules incomplete
+- Assign to inactive users
+- Skip backup assignments
+- Ignore time zones
+- Use overly complex rules
+- Leave assignment rules incomplete
 
 ### 3. Dependencies
 
 ✅ **Do**:
 
--   Clearly define prerequisites
--   Verify data availability
--   Set proper task order
--   Handle all outcomes
+- Clearly define prerequisites
+- Verify data availability
+- Set proper task order
+- Handle all outcomes
 
 ❌ **Don't**:
 
--   Create circular dependencies
--   Skip validation
--   Ignore error cases
+- Create circular dependencies
+- Skip validation
+- Ignore error cases
 
 ## Error Handling
 
