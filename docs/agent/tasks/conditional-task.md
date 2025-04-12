@@ -400,6 +400,4 @@ The `error_policy` field defines how errors are handled during rule evaluation:
 
 ## Related Documentation
 
-- [Workflow Tasks](../guides/workflow-tasks.md)
-- [Task Dependencies](../guides/task-dependencies.md)
-- [Error Handling](../guides/error-handling.md)
+- [Assignment Rules](../guides/assignment-rules.md)
