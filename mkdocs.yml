@@ -110,6 +110,7 @@ nav:
         - Human Task: agent/tasks/human-task.md
         - App Task: agent/tasks/app-task.md
         - Coder Task: agent/tasks/coder-task.md
+        - Conditional Task: agent/tasks/conditional-task.md
       - Parameters:
         - Input Parameters: agent/parameters/input-parameters.md
         - Output Parameters: agent/parameters/output-parameters.md
